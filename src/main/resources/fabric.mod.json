@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "hex_vr",
+  "version": "${version}",
+  "name": "HexVR",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/Rasmu/HexVR"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/hex_vr/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.nanorasmus.nanodev.hex_vr.HexVRClient"
+    ],
+    "main": [
+      "me.nanorasmus.nanodev.hex_vr.HexVR"
+    ]
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabricloader": ">=0.14",
+    "fabric": "*",
+    "minecraft": "=1.19.2",
+    "hexcasting": ">=0.10.3",
+    "vrapi": ">=3.0.7"
+  }
+}

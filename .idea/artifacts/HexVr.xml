@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="HexVr">
+    <output-path>$PROJECT_DIR$/out/artifacts/HexVr</output-path>
+    <root id="archive" name="hex_vr.jar">
+      <element id="module-output" name="HexVR.main" />
+    </root>
+  </artifact>
+</component>

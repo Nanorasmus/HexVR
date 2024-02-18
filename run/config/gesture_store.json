@@ -1,0 +1,78 @@
+{
+  "GESTURES": {
+    "BURST": {
+      "RIGHT_CONTROLLER": [
+        {
+          "vrDevice": "RIGHT_CONTROLLER",
+          "movement": "forward",
+          "elapsedTime": 2000,
+          "speed": 0.0,
+          "direction": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "devicesInProximity": {}
+        }
+      ],
+      "LEFT_CONTROLLER": [
+        {
+          "vrDevice": "LEFT_CONTROLLER",
+          "movement": "forward",
+          "elapsedTime": 2000,
+          "speed": 0.0,
+          "direction": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "devicesInProximity": {}
+        }
+      ]
+    },
+    "STRIKE": {
+      "RIGHT_CONTROLLER|LEFT_CONTROLLER": [
+        {
+          "vrDevice": "RIGHT_CONTROLLER|LEFT_CONTROLLER",
+          "movement": "forward",
+          "elapsedTime": 0,
+          "speed": 0.0,
+          "direction": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "devicesInProximity": {}
+        }
+      ]
+    },
+    "UPPERCUT": {
+      "RIGHT_CONTROLLER|LEFT_CONTROLLER": [
+        {
+          "vrDevice": "RIGHT_CONTROLLER|LEFT_CONTROLLER",
+          "movement": "forward",
+          "elapsedTime": 0,
+          "speed": 0.0,
+          "direction": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "devicesInProximity": {}
+        },
+        {
+          "vrDevice": "RIGHT_CONTROLLER|LEFT_CONTROLLER",
+          "movement": "up",
+          "elapsedTime": 0,
+          "speed": 0.0,
+          "direction": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "devicesInProximity": {}
+        }
+      ]
+    }
+  }
+}

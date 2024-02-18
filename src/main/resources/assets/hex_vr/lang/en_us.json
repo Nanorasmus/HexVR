@@ -1,0 +1,8 @@
+{
+  "item.hex_vr.test_item": "Test Item",
+  "key.category.hex_vr.hex_vr": "Hex VR",
+  "key.hex_vr.draw_spell_l_simple": "Draw spell - Left hand - Simple",
+  "key.hex_vr.draw_spell_r_simple": "Draw spell - Right hand - Simple",
+  "key.hex_vr.draw_spell_l_advanced": "Draw spell - Left hand - Advanced",
+  "key.hex_vr.draw_spell_r_advanced": "Draw spell - Right hand - Advanced"
+}
