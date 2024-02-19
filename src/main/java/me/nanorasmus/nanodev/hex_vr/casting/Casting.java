@@ -8,6 +8,7 @@ import at.petrak.hexcasting.api.spell.math.HexPattern;
 import at.petrak.hexcasting.common.network.MsgNewSpellPatternAck;
 import at.petrak.hexcasting.common.network.MsgNewSpellPatternSyn;
 import at.petrak.hexcasting.xplat.IClientXplatAbstractions;
+import me.nanorasmus.nanodev.hex_vr.HexVRClient;
 import me.nanorasmus.nanodev.hex_vr.particle.CastingParticles;
 import me.nanorasmus.nanodev.hex_vr.vr.VRPlugin;
 import net.blf02.vrapi.api.data.IVRData;
@@ -67,14 +68,18 @@ public class Casting {
     /**
      * Distance between each point
      */
-    double gridSize = 0.2;
-    double snappingDistance = gridSize / 2;
-    double backTrackDistance = Math.min(snappingDistance, gridSize / 2.5);
+    double gridSize = HexVRClient.config.gridSize;
+    double snappingDistance = HexVRClient.config.snappingDistance;
+    double backTrackDistance = HexVRClient.config.backTrackDistance;
     static ArrayList<ResolvedPattern> patterns = new ArrayList<>();
     static ArrayList<ArrayList<CastingPoint>> patternPoints = new ArrayList<>();
+    boolean patternsAlwaysVisible = HexVRClient.config.patternsAlwaysVisible;
     boolean usingRightHand;
     Hand hand;
     int controllerIndex;
+    ArrayList<Particle> handParticles = new ArrayList<>();
+
+    double particleDistance = gridSize / 10;
 
     public Casting(boolean rightHand, boolean simpleNormals) {
         usingRightHand = rightHand;
@@ -98,9 +103,8 @@ public class Casting {
             return;
 
 
-
-        // Render previous patterns
-        if (!patternPoints.isEmpty()) {
+        // Render previous patterns at all times
+        if (patternsAlwaysVisible && !patternPoints.isEmpty()) {
             for (ArrayList<CastingPoint> patternPoint : patternPoints) {
                 for (int i = 0; i < patternPoint.size(); i++) {
                     Vec3d point = patternPoint.get(i).point;
@@ -138,34 +142,39 @@ public class Casting {
         wasPressed = isPressed;
     }
 
-    void renderSpot(MinecraftClient client, Vec3d point, int maxAge) {
-        renderSpot(client, point, maxAge, 0.15f);
+    Particle renderSpot(MinecraftClient client, Vec3d point, int maxAge) {
+        return renderSpot(client, point, maxAge, 0.15f);
     }
 
-    void renderSpot(MinecraftClient client, Vec3d point, int maxAge, float sizeMultiplier) {
+    Particle renderSpot(MinecraftClient client, Vec3d point, int maxAge, float sizeMultiplier) {
         Particle particle = client.particleManager.addParticle(CastingParticles.STATIC_PARTICLE, point.x, point.y, point.z, 0, 0, 0);
         particle.setMaxAge(maxAge);
         particle.scale(sizeMultiplier);
+        return particle;
     }
 
-    void renderLine(MinecraftClient client, Vec3d from, Vec3d to) {
+    Particle renderLine(MinecraftClient client, Vec3d from, Vec3d to) {
         Vec3d vel = to.subtract(from).multiply(0.1);
         Particle particle = client.particleManager.addParticle(CastingParticles.STATIC_PARTICLE, from.x, from.y, from.z, vel.x, vel.y, vel.z);
         particle.setMaxAge(10);
         particle.scale(0.1f);
+        return particle;
     }
 
     void makeParticles(MinecraftClient client) {
+        // Previous points
         for (int i = 0; i < points.size(); i++) {
-            Vec3d point = points.get(i).point;
-            renderSpot(client, point, 1);
+            CastingPoint point = points.get(i);
+            point.filterParticles();
+            point.addParticle(renderSpot(client, point.point, 1));
             if (i > 0) {
                 Vec3d prevPoint = points.get(i - 1).point;
-                renderLine(client, prevPoint, point);
+                point.addParticle(renderLine(client, prevPoint, point.point));
             }
         }
 
 
+        // Snapping points
         for (int i = 0; i < pointsAround.size(); i++) {
             Vec3d point = pointsAround.get(i);
 
@@ -173,6 +182,27 @@ public class Casting {
         }
 
 
+        // Hand line
+        for(Particle particle : handParticles) {
+            particle.markDead();
+        }
+        handParticles = initializeLine(getNewestPoint().point, getPoint());
+
+
+        // Render previous patterns only when casting
+        if (!patternsAlwaysVisible && !patternPoints.isEmpty()) {
+            for (ArrayList<CastingPoint> patternPoint : patternPoints) {
+                for (int i = 0; i < patternPoint.size(); i++) {
+                    Vec3d point = patternPoint.get(i).point;
+                    renderSpot(client, point, 1);
+                    if (i > 0) {
+                        Vec3d prevPoint = patternPoint.get(i - 1).point;
+                        renderLine(client, prevPoint, point);
+                    } else {
+                    }
+                }
+            }
+        }
     }
 
     Vec3d getPoint() {
@@ -200,23 +230,46 @@ public class Casting {
         updateNormals();
 
         // Initialize Hex Offsets
-        Vec3d right = rightNormal.multiply(0.5);
-        Vec3d upperRight = rightNormal.multiply(0.5).add(upNormal);
+        Vec3d right = rightNormal;
+        Vec3d upperRight = right.multiply(0.5).add(upNormal);
         Vec3d bottomRight = upperRight.subtract(upNormal.multiply(2));
-        Vec3d left = rightNormal.multiply(-1);
+        Vec3d left = right.multiply(-1);
         Vec3d bottomLeft = upperRight.multiply(-1);
         Vec3d upperLeft = bottomRight.multiply(-1);
         hexOffsets.clear();
-        hexOffsets.addAll(Arrays.asList(upperRight, rightNormal, bottomRight, bottomLeft, left, upperLeft));
+        hexOffsets.addAll(Arrays.asList(upperRight, right, bottomRight, bottomLeft, left, upperLeft));
     }
 
     CastingPoint getNewestPoint() {
         return points.get(points.size() - 1);
     }
 
+    ArrayList<Particle> initializeLine(Vec3d from, Vec3d to) {
+        ArrayList<Particle> particles = new ArrayList<>();
+
+        Vec3d direction = to.subtract(from);
+        for (int i = 1; i < 100; i++) {
+            // Get total distance to be incremented
+            double increment = particleDistance * i;
+
+            if (increment > direction.length()) break;
+
+            // Turn it into a relative distance for lerping
+            double lerpIncrement = increment / direction.length();
+
+            particles.add(
+            renderLine(MinecraftClient.getInstance(), from.lerp(to, lerpIncrement), to)
+            );
+        }
+
+        return particles;
+    }
+
     void startCasting(MinecraftClient client) {
+        // Delete floating patterns if sneaking
+        if (client.player.isSneaking()) patternPoints.clear();
 
-
+        // Normal casting init
         perCastInit();
         points.add(new CastingPoint(getPoint()));
         updatePointsAround();
@@ -316,11 +369,21 @@ public class Casting {
         // Find nearest snapping point
         Vec3d snappingPoint = findClosestSnappingPoint(point);
         seenLines.add(new Line(getNewestPoint().point, snappingPoint));
+
+        // Initialize CastingPoint
+        CastingPoint newPoint;
         if (points.size() < 1) {
-            points.add(new CastingPoint(snappingPoint));
+            newPoint = new CastingPoint(snappingPoint);
         } else {
-            points.add(createCastingPoint(snappingPoint));
+            newPoint = createCastingPoint(snappingPoint);
+
+            // Initialize Particles
+            initializeLine(getNewestPoint().point, newPoint.point);
         }
+
+
+        // Finish up
+        points.add(newPoint);
         updatePointsAround();
     }
 
@@ -329,6 +392,7 @@ public class Casting {
             seenLines.remove(seenLines.size() - 1);
         }
         if (!points.isEmpty()) {
+            points.get(points.size() - 1).prepareDeletion();
             points.remove(points.size() - 1);
         }
         updatePointsAround();
@@ -419,7 +483,7 @@ public class Casting {
     void finishCasting(MinecraftClient client) {
         if (points.size() > 2) {
             // Add floating pattern
-            patternPoints.add(points);
+            patternPoints.add((ArrayList<CastingPoint>) points.clone());
 
             // Send pattern to server
             HexPattern pattern = toHexPattern();

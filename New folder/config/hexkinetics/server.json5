@@ -1,0 +1,15 @@
+{
+	"settingsTranslocation": {
+		"exampleConstActionCost": 0.0,
+		"translocationDenyList": [
+			"minecraft:end_portal",
+			"minecraft:end_portal_frame",
+			"minecraft:end_gateway",
+			"minecraft:nether_portal",
+			"minecraft:command_block",
+			"minecraft:chain_command_block",
+			"minecraft:repeating_command_block",
+			"minecraft:barrier"
+		]
+	}
+}

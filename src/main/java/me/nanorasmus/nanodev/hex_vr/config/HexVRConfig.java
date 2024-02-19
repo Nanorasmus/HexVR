@@ -10,6 +10,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 
+@Config(name = HexVR.MOD_ID)
 public class HexVRConfig extends PartitioningSerializer.GlobalData {
     @ConfigEntry.Category("client")
     @ConfigEntry.Gui.TransitiveObject
@@ -26,11 +27,13 @@ public class HexVRConfig extends PartitioningSerializer.GlobalData {
         return instance;
     }
 
-    @Config(name = HexVR.MOD_ID)
+    @Config(name = "client")
     public static final class HexVRClientConfig implements ConfigData {
         public double gridSize = 0.2;
-        public double snappingDistance = 0.1;
-        public double backTrackDistance = 0.08;
+        public double snappingDistance = 0.12;
+        public double backTrackDistance = 0.09;
+
+        public boolean patternsAlwaysVisible = true;
 
         @Override
         public void validatePostLoad() {

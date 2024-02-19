@@ -1,0 +1,820 @@
+[20:01:21] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.19.2 with Fabric Loader 0.15.6
+[20:01:21] [main/INFO] (FabricLoader) Loading 121 mods:
+	- architectury 6.5.90
+	- cardinal-components 5.0.2
+	- cardinal-components-base 5.0.2
+	- cardinal-components-block 5.0.2
+	- cardinal-components-chunk 5.0.2
+	- cardinal-components-entity 5.0.2
+	- cardinal-components-item 5.0.2
+	- cardinal-components-level 5.0.2
+	- cardinal-components-scoreboard 5.0.2
+	- cardinal-components-world 5.0.2
+	- cloth-basic-math 0.6.1
+	- cloth-config 8.2.88
+	- emi 0.4.0+1.19
+	- fabric-api 0.77.0+1.19.2
+	   |-- fabric-command-api-v1 1.2.16+f71b366f90
+	   |-- fabric-commands-v0 0.2.33+df3654b390
+	   |-- fabric-containers-v0 0.1.42+df3654b390
+	   |-- fabric-events-lifecycle-v0 0.2.36+df3654b390
+	   |-- fabric-keybindings-v0 0.2.23+df3654b390
+	   |-- fabric-loot-tables-v1 1.1.16+9e7660c690
+	   |-- fabric-networking-v0 0.3.29+df3654b390
+	   |-- fabric-renderer-registries-v1 3.2.25+df3654b390
+	   \-- fabric-rendering-v0 1.1.28+df3654b390
+	- fabric-api-base 0.4.15+8f4e8eb390
+	- fabric-api-lookup-api-v1 1.6.14+93d8cb8290
+	- fabric-biome-api-v1 9.1.1+16f1e31390
+	- fabric-block-api-v1 1.0.2+e415d50e90
+	- fabric-blockrenderlayer-v1 1.1.25+cafc6e8e90
+	- fabric-client-tags-api-v1 1.0.5+b35fea8390
+	- fabric-command-api-v2 2.2.1+413cbbc790
+	- fabric-content-registries-v0 3.5.2+7c6cd14d90
+	- fabric-convention-tags-v1 1.3.0+4bc6e26290
+	- fabric-crash-report-info-v1 0.2.8+aeb40ebe90
+	- fabric-data-generation-api-v1 5.3.9+413cbbc790
+	- fabric-dimensions-v1 2.1.35+0d0f210290
+	- fabric-entity-events-v1 1.5.4+9244241690
+	- fabric-events-interaction-v0 0.4.34+562bff6e90
+	- fabric-game-rule-api-v1 1.0.24+b6b6abb490
+	- fabric-gametest-api-v1 1.1.8+4d0d570390
+	- fabric-item-api-v1 1.6.6+b7d1888890
+	- fabric-item-groups-v0 0.3.39+9244241690
+	- fabric-key-binding-api-v1 1.0.25+5c4fce2890
+	- fabric-language-kotlin 1.10.17+kotlin.1.9.22
+	   |-- org_jetbrains_kotlin_kotlin-reflect 1.9.22
+	   |-- org_jetbrains_kotlin_kotlin-stdlib 1.9.22
+	   |-- org_jetbrains_kotlin_kotlin-stdlib-jdk7 1.9.22
+	   |-- org_jetbrains_kotlin_kotlin-stdlib-jdk8 1.9.22
+	   |-- org_jetbrains_kotlinx_atomicfu-jvm 0.23.1
+	   |-- org_jetbrains_kotlinx_kotlinx-coroutines-core-jvm 1.7.3
+	   |-- org_jetbrains_kotlinx_kotlinx-coroutines-jdk8 1.7.3
+	   |-- org_jetbrains_kotlinx_kotlinx-datetime-jvm 0.5.0
+	   |-- org_jetbrains_kotlinx_kotlinx-serialization-cbor-jvm 1.6.2
+	   |-- org_jetbrains_kotlinx_kotlinx-serialization-core-jvm 1.6.2
+	   \-- org_jetbrains_kotlinx_kotlinx-serialization-json-jvm 1.6.2
+	- fabric-lifecycle-events-v1 2.2.4+1b46dc7890
+	- fabric-loot-api-v2 1.1.13+83a8659290
+	- fabric-message-api-v1 5.0.7+93d8cb8290
+	- fabric-mining-level-api-v1 2.1.24+33fbc73890
+	- fabric-models-v0 0.3.21+c6af733c90
+	- fabric-networking-api-v1 1.2.12+def3f86d90
+	- fabric-object-builder-api-v1 4.2.2+d8ef690890
+	- fabric-particles-v1 1.1.0+ee641e7390
+	- fabric-recipe-api-v1 1.0.2+413cbbc790
+	- fabric-registry-sync-v0 0.9.33+9244241690
+	- fabric-renderer-api-v1 1.2.1+1adbf27790
+	- fabric-renderer-indigo 0.8.0+1adbf27790
+	- fabric-rendering-data-attachment-v1 0.3.19+6e0787e690
+	- fabric-rendering-fluids-v1 3.0.11+4d0d570390
+	- fabric-rendering-v1 1.13.0+526f2c6790
+	- fabric-resource-conditions-api-v1 2.1.2+aae9039d90
+	- fabric-resource-loader-v0 0.8.4+edbdcddb90
+	- fabric-screen-api-v1 1.0.32+4d0d570390
+	- fabric-screen-handler-api-v1 1.3.8+1cc24b1b90
+	- fabric-sound-api-v1 1.0.2+c4f28df590
+	- fabric-textures-v0 1.0.24+aeb40ebe90
+	- fabric-transfer-api-v1 2.1.6+413cbbc790
+	- fabric-transitive-access-wideners-v1 1.3.3+08b73de490
+	- fabricloader 0.15.6
+	   \-- mixinextras 0.3.2
+	- ferritecore 5.0.3
+	- fiber 0.23.0-2
+	- geckolib3 3.1.40
+	   \-- com_eliotlash_mclib_mclib 20
+	- gravity_api 0.7.12
+	- hex_vr 1.0.0
+	- hexal 0.2.19
+	   |-- lib39-core 1.5.0-pre2+1.19.2
+	   \-- lib39-phantom 1.5.0-pre2+1.19.2
+	- hexcasting 0.10.3
+	- hexgloop 1.19.2-0.2.0
+	   |-- org_jblas_jblas 1.2.5
+	   \-- org_joml_joml 1.10.5
+	- hexkinetics 0.7.2
+	- hexlink 2.2.6
+	- hexresearch 1.0.1
+	- hextweaks 3.2.3
+	- java 17
+	- kanos_config 0.3.1+1.14.4-1.19
+	- lanishextendedstaves 0.0.1
+	- lithium 0.10.2
+	- mediaworks 1.0.6
+	   \-- extensibleenums 4.0.0
+	- minecraft 1.19.2
+	- modmenu 4.1.1
+	- moreiotas 0.0.4
+	- patchouli 1.19.2-77-FABRIC
+	- paucal 0.5.0
+	- pehkui 3.6.0+1.14.4-1.19.3
+	- phosphor 0.8.1
+	- reach-entity-attributes 2.3.0
+	- serialization_hooks 0.3.24
+	- trinkets 3.4.2
+	- vivecraft 1.19.2-1.1.5
+	   |-- com_electronwill_night-config_core 3.6.6
+	   |-- com_electronwill_night-config_toml 3.6.6
+	   |-- org_lwjgl_lwjgl-openvr 3.3.1
+	   |-- org_lwjgl_lwjgl-openvr_natives-linux 3.3.1
+	   |-- org_lwjgl_lwjgl-openvr_natives-macos 3.3.1
+	   \-- org_lwjgl_lwjgl-openvr_natives-windows 3.3.1
+	- vrapi 3.0.7
+	- wnboi 0.0.4
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\fabric-loot-tables-v12965870127171122732.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\fabric-keybindings-v015261589537738648720.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\fabric-rendering-v01331623562679716961.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlinx_atomicfu-jvm8529820958378278999.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlinx_kotlinx-coroutines-jdk810122672487087963542.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlinx_kotlinx-datetime-jvm4499585486538857538.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\extensibleenums17986643818306960541.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jblas_jblas4752449870977802212.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlinx_kotlinx-serialization-core-jvm13757479905524354592.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_lwjgl_lwjgl-openvr_natives-windows1036230871179511586.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\lib39-core8895836739386978226.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlinx_kotlinx-coroutines-core-jvm837211264220387108.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\com_electronwill_night-config_toml5331708186596056427.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlinx_kotlinx-serialization-cbor-jvm14435497106538091343.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\com_eliotlash_mclib_mclib1569333036128145776.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\fabric-renderer-registries-v16168464477321614767.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_lwjgl_lwjgl-openvr_natives-linux346123180891313564.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_lwjgl_lwjgl-openvr6266123439410411496.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\fabric-commands-v017372444973043939890.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlin_kotlin-stdlib-jdk82102869601464149884.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\fabric-command-api-v116704036972570624876.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\com_electronwill_night-config_core10176651287059053202.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\fabric-events-lifecycle-v015373933909132205745.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlinx_kotlinx-serialization-json-jvm16346820474839792540.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_lwjgl_lwjgl-openvr_natives-macos13090416870428850979.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\lib39-phantom4227118130619144685.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_joml_joml9267659874007919778.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlin_kotlin-stdlib18361690559860035274.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlin_kotlin-stdlib-jdk715454958904914729587.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\org_jetbrains_kotlin_kotlin-reflect1099338439958922987.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\fabric-containers-v06928165519019995791.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/WARN] (FabricLoader/ModRemap) Error deleting temporary input jar true
+java.nio.file.FileSystemException: D:\Programming\Minecraft\.Mods\HexVR\run\.fabric\tmp\fabric-networking-v0572196739712938748.jar: The process cannot access the file because it is being used by another process
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(WindowsFileSystemProvider.java:275) ~[?:?]
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(AbstractFileSystemProvider.java:110) ~[?:?]
+	at java.nio.file.Files.deleteIfExists(Files.java:1191) ~[?:?]
+	at net.fabricmc.loader.impl.discovery.RuntimeModRemapper.remap(RuntimeModRemapper.java:194) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.setup(FabricLoaderImpl.java:242) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.FabricLoaderImpl.load(FabricLoaderImpl.java:192) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.init(Knot.java:146) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:68) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+[20:01:31] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.5 Source=file:/C:/Users/Rasmu/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.12.5+mixin.0.8.5/8d31fb97c3e0cd7c8dad3441851c523bcfae6d8e/sponge-mixin-0.12.5+mixin.0.8.5.jar Service=Knot/Fabric Env=CLIENT
+[20:01:31] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[20:01:31] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_16
+[20:01:31] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[20:01:31] [main/WARN] (FabricLoader/Mixin) Reference map 'hextweaks-fabric-refmap.json' for hextweaks.mixins.json could not be read. If this is a development environment you can ignore this message
+[20:01:31] [main/WARN] (FabricLoader/Mixin) Reference map 'lanishextendedstaves-fabric-1.19.2-fabric-refmap.json' for lanishextendedstaves.mixins.json could not be read. If this is a development environment you can ignore this message
+[20:01:31] [main/WARN] (FabricLoader/Mixin) Reference map 'moreiotas.mixins.refmap.json' for moreiotasplat.mixins.json could not be read. If this is a development environment you can ignore this message
+[20:01:31] [main/WARN] (FabricLoader/Mixin) Reference map 'moreiotas.mixins.refmap.json' for moreiotas.mixins.json could not be read. If this is a development environment you can ignore this message
+[20:01:32] [main/WARN] (LithiumConfig) Mod 'gravity_api' attempted to override option 'mixin.entity.fast_suffocation_check', which doesn't exist, ignoring
+[20:01:32] [main/INFO] (Lithium) Loaded configuration file for Lithium: 105 options available, 2 override(s) found
+[20:01:32] [main/WARN] (FabricLoader/Mixin) Reference map 'hexkinetics.mixins.refmap.json' for hexkineticsplat.mixins.json could not be read. If this is a development environment you can ignore this message
+[20:01:32] [main/WARN] (FabricLoader/Mixin) Reference map 'hexkinetics.mixins.refmap.json' for hexkinetics.mixins.json could not be read. If this is a development environment you can ignore this message
+[20:01:32] [main/INFO] (Vivecraft) Vivecraft: applying 'dynamicfps' fixes
+[20:01:32] [main/INFO] (Vivecraft) Vivecraft: applying 'sodium' fixes
+[20:01:32] [main/INFO] (Vivecraft) Vivecraft: applying 'modmenu' fixes
+[20:01:32] [main/INFO] (Vivecraft) Vivecraft: applying 'physicsmod' fixes
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'alloc.blockstate.StateMixin' as rule 'mixin.alloc.blockstate' (added by mods [ferritecore]) disables it and children
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'entity.collisions.fluid.EntityMixin' as rule 'mixin.entity.collisions' (added by mods [gravity_api]) disables it and children
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'entity.collisions.intersection.CollisionViewMixin' as rule 'mixin.entity.collisions' (added by mods [gravity_api]) disables it and children
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'entity.collisions.movement.EntityMixin' as rule 'mixin.entity.collisions' (added by mods [gravity_api]) disables it and children
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'entity.collisions.suffocation.EntityMixin' as rule 'mixin.entity.collisions' (added by mods [gravity_api]) disables it and children
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'entity.collisions.unpushable_cramming.AbstractMinecartEntityMixin' as rule 'mixin.entity.collisions' (added by mods [gravity_api]) disables it and children
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'entity.collisions.unpushable_cramming.BoatEntityMixin' as rule 'mixin.entity.collisions' (added by mods [gravity_api]) disables it and children
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'entity.collisions.unpushable_cramming.EntityMixin' as rule 'mixin.entity.collisions' (added by mods [gravity_api]) disables it and children
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'entity.collisions.unpushable_cramming.EntityPredicatesMixin' as rule 'mixin.entity.collisions' (added by mods [gravity_api]) disables it and children
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'entity.collisions.unpushable_cramming.EntityTrackingSectionMixin' as rule 'mixin.entity.collisions' (added by mods [gravity_api]) disables it and children
+[20:01:32] [main/WARN] (Lithium) Force-disabling mixin 'entity.collisions.unpushable_cramming.LivingEntityMixin' as rule 'mixin.entity.collisions' (added by mods [gravity_api]) disables it and children
+[20:01:33] [main/WARN] (FabricLoader/Mixin) Error loading class: me/jellysquid/mods/sodium/client/world/WorldSlice (java.lang.ClassNotFoundException: me/jellysquid/mods/sodium/client/world/WorldSlice)
+[20:01:33] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.2).
+[20:01:38] [main/INFO] (Minecraft) Building optimized datafixer
+[20:01:40] [main/WARN] (FabricLoader/Mixin) @Redirect conflict. Skipping vivecraft.mixins.json:world.entity.projectile.FishingHookMixin from mod vivecraft->@Redirect::vivecraft$modifyMoveTo(Lnet/minecraft/entity/projectile/FishingBobberEntity;DDDFF)V with priority 1000, already redirected by gravity_api.mixins.json:FishingBobberEntityMixin from mod gravity_api->@Redirect::redirect_init_(Lnet/minecraft/entity/projectile/FishingBobberEntity;DDDFFLnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/world/World;II)V with priority 1000
+[20:01:46] [Render thread/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[20:01:47] [Render thread/ERROR] (Minecraft) Failed to verify authentication
+com.mojang.authlib.exceptions.InvalidCredentialsException: Status: 401
+	at com.mojang.authlib.exceptions.MinecraftClientHttpException.toAuthenticationException(MinecraftClientHttpException.java:56) ~[authlib-3.11.49.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:155) ~[authlib-3.11.49.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilUserApiService.<init>(YggdrasilUserApiService.java:55) ~[authlib-3.11.49.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.createUserApiService(YggdrasilAuthenticationService.java:161) ~[authlib-3.11.49.jar:?]
+	at net.minecraft.client.MinecraftClient.createUserApiService(MinecraftClient.java:711) [minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.client.MinecraftClient.<init>(MinecraftClient.java:431) [minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.client.main.Main.main(Main.java:205) [minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.client.main.Main.main(Main.java:51) [minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:470) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.15.6.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
+	at com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:85) ~[authlib-3.11.49.jar:?]
+	at com.mojang.authlib.minecraft.client.MinecraftClient.get(MinecraftClient.java:48) ~[authlib-3.11.49.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:129) ~[authlib-3.11.49.jar:?]
+	... 10 more
+[20:01:47] [Render thread/INFO] (Minecraft) Setting user: Player877
+[20:01:48] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id hexgloop:clear_grid
+[20:01:48] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id hexgloop:open_casting_grid
+[20:01:48] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id hexgloop:ctos_update_orchard
+[20:01:48] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id hexgloop:change_wall_scroll
+[20:01:48] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id hexgloop:c2s_frog_casting
+[20:01:49] [Render thread/INFO] (hexgloop) try to register casting_event with range 16 and freq 2
+[20:01:49] [Render thread/ERROR] (Minecraft) No data fixer registered for geoexampleentity
+[20:01:49] [Render thread/ERROR] (Minecraft) No data fixer registered for bikeentity
+[20:01:49] [Render thread/ERROR] (Minecraft) No data fixer registered for carentity
+[20:01:49] [Render thread/ERROR] (Minecraft) No data fixer registered for extendedrendererentity
+[20:01:49] [Render thread/ERROR] (Minecraft) No data fixer registered for textureperbonetestentity
+[20:01:49] [Render thread/ERROR] (Minecraft) No data fixer registered for leentity
+[20:01:49] [Render thread/ERROR] (Minecraft) No data fixer registered for rocketprojectile
+[20:01:51] [Render thread/INFO] (hexal) Hello Fabric World!
+[20:01:51] [Render thread/INFO] (hexal) registering hexal features
+[20:01:51] [Render thread/INFO] (hexal) registering hexal configured features
+[20:01:52] [Render thread/ERROR] (Minecraft) No data fixer registered for hexal:wisp/wandering
+[20:01:52] [Render thread/ERROR] (Minecraft) No data fixer registered for hexal:wisp/projectile
+[20:01:52] [Render thread/ERROR] (Minecraft) No data fixer registered for hexal:wisp/ticking
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id mediaworks:networking_channel/c6d921373ae7339ea436146796ce8e11
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id mediaworks:networking_channel/c6d921373ae7339ea436146796ce8e11
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id mediaworks:networking_channel/d0c07ab849a636fb8f38b27c64e68457
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id mediaworks:networking_channel/d0c07ab849a636fb8f38b27c64e68457
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id mediaworks:networking_channel/5af98383f37839eab1c61d11296c56b5
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id mediaworks:networking_channel/5af98383f37839eab1c61d11296c56b5
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id mediaworks:networking_channel/ab8441c91f4f3df69443b946bfcad058
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id mediaworks:networking_channel/ab8441c91f4f3df69443b946bfcad058
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id mediaworks:networking_channel/d3f5e9e9458134a3a7c02f1b9c009b90
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id mediaworks:networking_channel/d3f5e9e9458134a3a7c02f1b9c009b90
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id mediaworks:networking_channel/d9b88814a47438869439bf90c1469430
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id mediaworks:networking_channel/d9b88814a47438869439bf90c1469430
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id mediaworks:networking_channel/633e1bba591336c5a177e1ee8792ef66
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id mediaworks:networking_channel/633e1bba591336c5a177e1ee8792ef66
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id mediaworks:networking_channel/d110db8f1d5033b5be036f626c230e2d
+[20:01:53] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id mediaworks:networking_channel/d110db8f1d5033b5be036f626c230e2d
+[20:01:53] [Render thread/INFO] (wnboi) Hello Fabric world!
+[20:01:54] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id vrapi:vr_data/d5d102e8451c390493fa33e1b349493a
+[20:01:54] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id vrapi:vr_data/d5d102e8451c390493fa33e1b349493a
+[20:01:54] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id vrapi:vr_data/c7df8fc3ed0732f3ae8a61e804328e14
+[20:01:54] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id vrapi:vr_data/c7df8fc3ed0732f3ae8a61e804328e14
+[20:01:54] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id vrapi:vr_data/1cfeb81067b530caaabde1cb98700657
+[20:01:54] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id vrapi:vr_data/1cfeb81067b530caaabde1cb98700657
+[20:01:54] [Render thread/INFO] (NetworkManagerImpl) Registering C2S receiver with id vrapi:vr_data/493a1c6da27a3f1b8dbaefb76c494e41
+[20:01:54] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id vrapi:vr_data/493a1c6da27a3f1b8dbaefb76c494e41
+[20:01:54] [Render thread/INFO] (hextweaks) finished loading hextweaks hexes
+[20:01:54] [Render thread/INFO] (hextweaks) HexTweaks Loaded on fabric
+[20:01:54] [Render thread/INFO] (lanishextendedstaves) D:\Programming\Minecraft\.Mods\HexVR\run\config
+[20:01:54] [Render thread/INFO] (hexlink) Hexlink started!
+[20:01:55] [Render thread/INFO] (paucal) Hello PAUCAL! This is FABRIC!
+[20:01:55] [Render thread/INFO] (hexresearch) Hex Research 1.0.1 Initializing
+[20:01:55] [Render thread/INFO] (moreiotas) Hello Fabric World!
+[20:01:55] [PAUCAL Contributors Loading Thread/INFO] (paucal) Successfully loaded 41 contributors
+[20:01:56] [Render thread/ERROR] (Minecraft) No data fixer registered for hexcasting:wall_scroll
+[20:01:57] [Render thread/INFO] (hexkinetics) Hello Fabric World!
+[20:01:57] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id architectury:spawn_entity_packet
+[20:01:57] [Render thread/INFO] (hexgloop) Initializing HexGloopClient
+[20:01:57] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id hexgloop:close_hex_book
+[20:01:57] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id hexgloop:prompt_replace_scroll
+[20:01:58] [Render thread/WARN] (FabricLoader/Mixin) @Redirect conflict. Skipping vivecraft.mixins.json:client_vr.renderer.entity.EntityRendererVRMixin from mod vivecraft->@Redirect::vivecraft$cameraOffset(Lnet/minecraft/client/render/entity/EntityRenderDispatcher;)Lnet/minecraft/util/math/Quaternion; with priority 1000, already redirected by gravity_api.mixins.json:client.EntityRenderMixin from mod gravity_api->@Redirect::redirect_renderLabelIfPresent_getRotation_0(Lnet/minecraft/client/render/entity/EntityRenderDispatcher;Lnet/minecraft/entity/Entity;Lnet/minecraft/text/Text;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)Lnet/minecraft/util/math/Quaternion; with priority 1000
+[20:01:58] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[20:01:59] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id hexresearch:server_config
+[20:01:59] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id hexresearch:scroll_sync
+[20:01:59] [Render thread/INFO] (NetworkManagerImpl) Registering S2C receiver with id hexresearch:mind_impression
+[20:02:00] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.1 SNAPSHOT
+[20:02:01] [Worker-Bootstrap-6/INFO] (Minecraft) 4283 Datafixer optimizations took 22478 milliseconds
+[20:02:01] [Worker-Main-17/ERROR] (Minecraft) Failed to retrieve profile key pair
+java.io.IOException: Could not retrieve profile key pair
+	at net.minecraft.client.util.ProfileKeys.fetchKeyPair(ProfileKeys.java:130) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.client.util.ProfileKeys.method_44291(ProfileKeys.java:69) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768) [?:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760) [?:?]
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) [?:?]
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) [?:?]
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) [?:?]
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) [?:?]
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) [?:?]
+[20:02:01] [Render thread/INFO] (Minecraft) Reloading ResourceManager: Default, Fabric Mods (Serialization Hooks, Fabric Client Tags, HexGloop, Geckolib, Fabric Command API (v1), Fabric Commands (v0), Fabric API Lookup API (v1), Gravity API, Fabric Key Binding API (v1), Fabric Rendering (v1), Cardinal Components API (blocks), Hexal, Fabric Networking (v0), Cardinal Components API (worlds), Fabric Lifecycle Events (v1), Fabric Renderer - Indigo, Fabric Convention Tags, Patchouli, Fabric Screen Handler API (v1), Fabric Resource Conditions API (v1), Phosphor, Fabric API Base, Fabric BlockRenderLayer Registration (v1), Fabric Screen API (v1), Mediaworks, Fabric Rendering Fluids (v1), Cardinal Components API (scoreboard), Fabric Containers (v0), HexVR, Fabric Particles (v1), Fabric Message API (v1), Why Not Be One Item, Cardinal Components API (chunks), Fabric Biome API (v1), mc-vr-api, EMI, Fabric Events Interaction (v0), HexTweaks, Cloth Config v8, Mod Menu, Fabric Rendering Data Attachment (v1), Hextended Staves, Fabric Renderer API (v1), Hexlink, PAUCAL, Cardinal Components API (entities), Hex Research, Cardinal Components API (world saves), Fabric Events Lifecycle (v0), Fabric Networking API (v1), Fabric Block API (v1), Reach Entity Attributes, Fabric Loot API (v2), Fabric Object Builder API (v1), Fabric Key Bindings (v0), Fabric Dimensions API (v1), Fabric Mining Level API (v1), Kanos Config, Fabric Sound API (v1), Cardinal Components API (items), Fabric Content Registries (v0), Fabric Crash Report Info (v1), Fabric Renderer Registries (v1), Fabric Transfer API (v1), Fabric Loader, Fabric Item Groups (v0), Fabric Resource Loader (v0), Fabric Data Generation API (v1), Fabric Item API (v1), Fabric Textures (v0), Fabric Command API (v2), Fabric Recipe API (v1), Fabric Game Rule API (v1), MoreIotas, Cardinal Components API, Vivecraft, Hex Casting, Fabric Transitive Access Wideners (v1), Pehkui, Lithium, Fabric Entity Events (v1), Fabric Models (v0), Fabric Game Test API (v1), Fabric Language Kotlin, Fabric Loot Tables (v1), Cardinal Components API (base), Fabric API, Fabric Registry Sync (v0), Trinkets, Fabric Rendering (v0), HexKinetics), hexgloop/dyeablestaffs
+[20:02:02] [VivecraftUpdateThread/INFO] (Minecraft) [STDOUT]: Checking for Vivecraft Updates
+[20:02:02] [Render thread/INFO] (Minecraft) [STDOUT]: Hello from lanishextendedstaves common mixin!
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 0
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.ArrayList$SubList.get(ArrayList.java:1149)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.parseSymbols(MathBuilder.java:306)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.parseSymbols(MathBuilder.java:282)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.createFunction(MathBuilder.java:439)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.parseSymbols(MathBuilder.java:266)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.parseSymbols(MathBuilder.java:308)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.parseSymbols(MathBuilder.java:283)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.core.molang.MolangParser.parseSymbolsMolang(MolangParser.java:228)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.core.molang.MolangParser.parseOneLine(MolangParser.java:216)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.core.molang.MolangParser.parseExpression(MolangParser.java:174)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.core.molang.MolangParser.parseJson(MolangParser.java:154)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.util.json.JsonKeyFrameUtils.parseExpression(JsonKeyFrameUtils.java:179)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.util.json.JsonKeyFrameUtils.convertJson(JsonKeyFrameUtils.java:57)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.util.json.JsonKeyFrameUtils.convertJsonToRotationKeyFrames(JsonKeyFrameUtils.java:173)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.util.json.JsonAnimationUtils.deserializeJsonToAnimation(JsonAnimationUtils.java:278)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.file.AnimationFileLoader.loadAllAnimations(AnimationFileLoader.java:32)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.resource.GeckoLibCache.lambda$reload$0(GeckoLibCache.java:73)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.resource.GeckoLibCache.lambda$loadResources$5(GeckoLibCache.java:91)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 0
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.ArrayList$SubList.get(ArrayList.java:1149)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.parseSymbols(MathBuilder.java:306)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.parseSymbols(MathBuilder.java:282)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.createFunction(MathBuilder.java:439)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.parseSymbols(MathBuilder.java:266)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.parseSymbols(MathBuilder.java:308)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.shadowed.eliotlash.mclib.math.MathBuilder.parseSymbols(MathBuilder.java:283)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.core.molang.MolangParser.parseSymbolsMolang(MolangParser.java:228)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.core.molang.MolangParser.parseOneLine(MolangParser.java:216)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.core.molang.MolangParser.parseExpression(MolangParser.java:174)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.core.molang.MolangParser.parseJson(MolangParser.java:154)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.util.json.JsonKeyFrameUtils.parseExpression(JsonKeyFrameUtils.java:179)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.util.json.JsonKeyFrameUtils.convertJson(JsonKeyFrameUtils.java:57)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.util.json.JsonKeyFrameUtils.convertJsonToRotationKeyFrames(JsonKeyFrameUtils.java:173)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.util.json.JsonAnimationUtils.deserializeJsonToAnimation(JsonAnimationUtils.java:278)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.file.AnimationFileLoader.loadAllAnimations(AnimationFileLoader.java:32)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.resource.GeckoLibCache.lambda$reload$0(GeckoLibCache.java:73)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at software.bernie.geckolib3.resource.GeckoLibCache.lambda$loadResources$5(GeckoLibCache.java:91)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+[20:02:02] [Worker-Main-22/INFO] (Minecraft) [STDERR]: 	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+[20:02:02] [Realms Notification Availability checker #1/INFO] (Minecraft) Could not authorize you against Realms server: Invalid session id
+[20:02:03] [Worker-Main-27/WARN] (Minecraft) Exception loading blockstate definition: 'hextweaks:blockstates/crystallizedbookblock.json' missing model for variant: 'hextweaks:crystallizedbookblock#'
+[20:02:03] [Worker-Main-27/WARN] (Minecraft) Unable to load model: 'hextweaks:crystallizedbookblock#inventory' referenced from: hextweaks:crystallizedbookblock#inventory: java.io.FileNotFoundException: hextweaks:models/item/crystallizedbookblock.json
+[20:02:03] [Worker-Main-27/WARN] (Minecraft) Texture hexlink:particle/spirit1 with size 13x11 limits mip level from 4 to 0
+[20:02:03] [Worker-Main-27/WARN] (Minecraft) minecraft:textures/atlas/blocks.png: dropping miplevel from 4 to 0, because of minimum power of two: 1
+[20:02:03] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[20:02:03] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[20:02:03] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Speakers (4- USB Audio Device)
+[20:02:03] [Render thread/INFO] (Minecraft) Sound engine started
+[20:02:03] [Render thread/INFO] (Minecraft) Created: 1024x1024x0 minecraft:textures/atlas/blocks.png-atlas
+[20:02:03] [Render thread/INFO] (Minecraft) Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[20:02:03] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[20:02:03] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[20:02:03] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/chest.png-atlas
+[20:02:03] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[20:02:03] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[20:02:04] [Render thread/INFO] (Vivecraft) Vivecraft: Optifine not detected
+[20:02:04] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[20:02:04] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[20:02:04] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[20:02:04] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[20:02:04] [Render thread/INFO] (patchouli) BookContentResourceListenerLoader preloaded 0 jsons
+[20:02:04] [Render thread/INFO] (patchouli) Not reloading resource pack-based books as client world is missing
+[20:02:04] [Render thread/WARN] (Minecraft) Shader color_convolve could not find uniform named InSize in the specified shader program.
+[20:02:04] [Render thread/INFO] (Minecraft) [STDOUT]: Hello from lanishextendedstaves common mixin!
+[20:02:10] [Render thread/INFO] (Minecraft) Stopping!
