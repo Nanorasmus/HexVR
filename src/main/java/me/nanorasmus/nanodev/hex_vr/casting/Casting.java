@@ -1,27 +1,23 @@
 package me.nanorasmus.nanodev.hex_vr.casting;
 
+import at.petrak.hexcasting.api.spell.casting.ControllerInfo;
 import at.petrak.hexcasting.api.spell.casting.ResolvedPattern;
 import at.petrak.hexcasting.api.spell.casting.ResolvedPatternType;
 import at.petrak.hexcasting.api.spell.math.HexCoord;
 import at.petrak.hexcasting.api.spell.math.HexDir;
 import at.petrak.hexcasting.api.spell.math.HexPattern;
-import at.petrak.hexcasting.common.network.MsgNewSpellPatternAck;
 import at.petrak.hexcasting.common.network.MsgNewSpellPatternSyn;
 import at.petrak.hexcasting.xplat.IClientXplatAbstractions;
 import me.nanorasmus.nanodev.hex_vr.HexVRClient;
 import me.nanorasmus.nanodev.hex_vr.particle.CastingParticles;
 import me.nanorasmus.nanodev.hex_vr.vr.VRPlugin;
-import net.blf02.vrapi.api.data.IVRData;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 import org.vivecraft.client_vr.ClientDataHolderVR;
-import org.vivecraft.client_vr.VRData;
 import org.vivecraft.client_vr.VRState;
 
 import java.util.ArrayList;
@@ -29,6 +25,8 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class Casting {
+    public static ArrayList<Casting> instances = new ArrayList<>();
+    public boolean isFirst = false;
 
     private static final ClientDataHolderVR DATA_HOLDER = ClientDataHolderVR.getInstance();
     private final ArrayList<Vec3d> hexOffsets = new ArrayList<>();
@@ -68,18 +66,38 @@ public class Casting {
     /**
      * Distance between each point
      */
-    double gridSize = HexVRClient.config.gridSize;
-    double snappingDistance = HexVRClient.config.snappingDistance;
-    double backTrackDistance = HexVRClient.config.backTrackDistance;
+    static double gridSize = HexVRClient.config.gridSize;
+    static double snappingDistance = HexVRClient.config.snappingDistance;
+    static double backTrackDistance = HexVRClient.config.backTrackDistance;
     static ArrayList<ResolvedPattern> patterns = new ArrayList<>();
-    static ArrayList<ArrayList<CastingPoint>> patternPoints = new ArrayList<>();
+    static ArrayList<CastingPattern> castingPatterns = new ArrayList<>();
     boolean patternsAlwaysVisible = HexVRClient.config.patternsAlwaysVisible;
     boolean usingRightHand;
     Hand hand;
     int controllerIndex;
     ArrayList<Particle> handParticles = new ArrayList<>();
 
-    double particleDistance = gridSize / 10;
+    static double particleDistance = gridSize / 10;
+
+    private static void clear() {
+        for (CastingPattern castingPattern : castingPatterns) {
+            castingPattern.prepareDeletion();
+        }
+        castingPatterns.clear();
+        patterns.clear();
+    }
+
+
+    public static void updateInstancesS2C(ControllerInfo info, int index) {
+        MinecraftClient.getInstance().player.sendMessage(Text.of("Got message"));
+        if (info.isStackClear()) {
+            clear();
+            return;
+        }
+        if (index < castingPatterns.size()) {
+            castingPatterns.get(index).updateResolution(info);
+        }
+    }
 
     public Casting(boolean rightHand, boolean simpleNormals) {
         usingRightHand = rightHand;
@@ -94,6 +112,12 @@ public class Casting {
             controllerIndex = 0;
             hand = Hand.MAIN_HAND;
         }
+
+        if (instances.isEmpty()) {
+            isFirst = true;
+            CastingPattern.init();
+        }
+        instances.add(this);
     }
 
 
@@ -103,19 +127,9 @@ public class Casting {
             return;
 
 
-        // Render previous patterns at all times
-        if (patternsAlwaysVisible && !patternPoints.isEmpty()) {
-            for (ArrayList<CastingPoint> patternPoint : patternPoints) {
-                for (int i = 0; i < patternPoint.size(); i++) {
-                    Vec3d point = patternPoint.get(i).point;
-                    renderSpot(client, point, 1);
-                    if (i > 0) {
-                        Vec3d prevPoint = patternPoint.get(i - 1).point;
-                        renderLine(client, prevPoint, point);
-                    } else {
-                    }
-                }
-            }
+        // Render previous patterns at all times (Limited to 1 instance to prevent unnecessary calls)
+        if (isFirst && patternsAlwaysVisible && !castingPatterns.isEmpty()) {
+            renderPreviousPatterns();
         }
 
 
@@ -140,6 +154,16 @@ public class Casting {
                 castingTick(client);
         }
         wasPressed = isPressed;
+    }
+
+    void renderPreviousPatterns() {
+        ArrayList<Vec3d> points = new ArrayList<>();
+        for (Casting instance : instances) {
+            points.add(instance.getPoint());
+        }
+        for (CastingPattern castingPattern : castingPatterns) {
+            castingPattern.render(points);
+        }
     }
 
     Particle renderSpot(MinecraftClient client, Vec3d point, int maxAge) {
@@ -190,18 +214,8 @@ public class Casting {
 
 
         // Render previous patterns only when casting
-        if (!patternsAlwaysVisible && !patternPoints.isEmpty()) {
-            for (ArrayList<CastingPoint> patternPoint : patternPoints) {
-                for (int i = 0; i < patternPoint.size(); i++) {
-                    Vec3d point = patternPoint.get(i).point;
-                    renderSpot(client, point, 1);
-                    if (i > 0) {
-                        Vec3d prevPoint = patternPoint.get(i - 1).point;
-                        renderLine(client, prevPoint, point);
-                    } else {
-                    }
-                }
-            }
+        if (!patternsAlwaysVisible && !castingPatterns.isEmpty()) {
+            renderPreviousPatterns();
         }
     }
 
@@ -267,7 +281,9 @@ public class Casting {
 
     void startCasting(MinecraftClient client) {
         // Delete floating patterns if sneaking
-        if (client.player.isSneaking()) patternPoints.clear();
+        if (client.player.isSneaking()) {
+            clear();
+        }
 
         // Normal casting init
         perCastInit();
@@ -482,12 +498,15 @@ public class Casting {
 
     void finishCasting(MinecraftClient client) {
         if (points.size() > 2) {
+            // Initialize Pattern
+            HexPattern pattern = toHexPattern();
+            ResolvedPattern resolvedPattern = new ResolvedPattern(pattern, generateHexCoord(patterns.size()), ResolvedPatternType.UNRESOLVED);
+            patterns.add(resolvedPattern);
+
             // Add floating pattern
-            patternPoints.add((ArrayList<CastingPoint>) points.clone());
+            castingPatterns.add(new CastingPattern((ArrayList<CastingPoint>) points.clone(), resolvedPattern, castingPatterns.size()));
 
             // Send pattern to server
-            HexPattern pattern = toHexPattern();
-            patterns.add(new ResolvedPattern(pattern, generateHexCoord(patterns.size()), ResolvedPatternType.UNRESOLVED));
             IClientXplatAbstractions.INSTANCE.sendPacketToServer(
                     new MsgNewSpellPatternSyn(hand, pattern, patterns)
             );

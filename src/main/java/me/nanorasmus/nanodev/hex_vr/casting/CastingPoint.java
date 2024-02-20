@@ -31,6 +31,9 @@ public class CastingPoint {
     public void addParticle(Particle particle) {
         particles.add(particle);
     }
+    public void addParticles(ArrayList<Particle> particles) {
+        particles.addAll(particles);
+    }
 
     public void prepareDeletion() {
         for (Particle particle : particles) {
