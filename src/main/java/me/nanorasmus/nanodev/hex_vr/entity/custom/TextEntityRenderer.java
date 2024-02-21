@@ -28,7 +28,9 @@ public class TextEntityRenderer extends ArmorStandEntityRenderer {
         float f = ((Entity)entity).getHeight() + 0.5f;
         int i = "deadmau5".equals(text.getString()) ? -10 : 0;
         matrices.push();
-        matrices.scale(nameTagScaleMultiplier, nameTagScaleMultiplier, nameTagScaleMultiplier);
+        if (entity instanceof TextEntity) {
+            matrices.scale(nameTagScaleMultiplier, nameTagScaleMultiplier, nameTagScaleMultiplier);
+        }
         matrices.translate(0.0, f, 0.0);
         matrices.multiply(this.dispatcher.getRotation());;
         matrices.scale(-0.025f, -0.025f, 0.025f);

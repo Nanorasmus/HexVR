@@ -6,13 +6,19 @@ import at.petrak.hexcasting.api.spell.casting.ResolvedPatternType;
 import at.petrak.hexcasting.api.spell.math.HexCoord;
 import at.petrak.hexcasting.api.spell.math.HexDir;
 import at.petrak.hexcasting.api.spell.math.HexPattern;
+import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import at.petrak.hexcasting.common.network.MsgNewSpellPatternSyn;
 import at.petrak.hexcasting.xplat.IClientXplatAbstractions;
 import me.nanorasmus.nanodev.hex_vr.HexVRClient;
 import me.nanorasmus.nanodev.hex_vr.particle.CastingParticles;
 import me.nanorasmus.nanodev.hex_vr.vr.VRPlugin;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.particle.Particle;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
@@ -22,6 +28,7 @@ import org.vivecraft.client_vr.VRState;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class Casting {
@@ -69,8 +76,17 @@ public class Casting {
     static double gridSize = HexVRClient.config.gridSize;
     static double snappingDistance = HexVRClient.config.snappingDistance;
     static double backTrackDistance = HexVRClient.config.backTrackDistance;
+
+
     static ArrayList<ResolvedPattern> patterns = new ArrayList<>();
     static ArrayList<CastingPattern> castingPatterns = new ArrayList<>();
+    public static ArrayList<Text> stack = new ArrayList<>();
+    public static Text ravenMind = null;
+
+
+    private static final float TEXT_DISTANCE = 9;
+
+
     boolean patternsAlwaysVisible = HexVRClient.config.patternsAlwaysVisible;
     boolean usingRightHand;
     Hand hand;
@@ -85,17 +101,37 @@ public class Casting {
         }
         castingPatterns.clear();
         patterns.clear();
+
+        ravenMind = null;
+        stack.clear();
     }
 
 
     public static void updateInstancesS2C(ControllerInfo info, int index) {
-        MinecraftClient.getInstance().player.sendMessage(Text.of("Got message"));
         if (info.isStackClear()) {
             clear();
             return;
         }
+        // Update pattern
         if (index < castingPatterns.size()) {
             castingPatterns.get(index).updateResolution(info);
+        }
+
+
+
+        // Update stack
+        stack.clear();
+        for (NbtCompound tag : info.getStack()) {
+            stack.add(HexIotaTypes.getDisplay(tag));
+        }
+        Collections.reverse(stack);
+
+
+        // Update ravenmind
+        if (info.getRavenmind() != null) {
+            ravenMind = HexIotaTypes.getDisplay(info.getRavenmind());
+        } else {
+            ravenMind = null;
         }
     }
 
@@ -114,10 +150,31 @@ public class Casting {
         }
 
         if (instances.isEmpty()) {
-            isFirst = true;
-            CastingPattern.init();
+            initStatic();
         }
         instances.add(this);
+    }
+
+    /**
+     * An initialization method for static variables
+     * Only triggers the first time a Casting class is initialized
+     * */
+    void initStatic() {
+        isFirst = true;
+        CastingPattern.init();
+        HudRenderCallback.EVENT.register((matrixStack, tickDelta) -> {
+            TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
+
+            if (ravenMind != null) {
+                MinecraftClient client = MinecraftClient.getInstance();
+                int width = client.getWindow().getScaledWidth();
+                textRenderer.drawWithShadow(matrixStack, ravenMind, width - textRenderer.getWidth(ravenMind) * 2, 10, 0);
+            }
+
+            for (int i = 0; i < stack.size(); i++) {
+                textRenderer.drawWithShadow(matrixStack, stack.get(i), 0, TEXT_DISTANCE * i, 0);
+            }
+        });
     }
 
 

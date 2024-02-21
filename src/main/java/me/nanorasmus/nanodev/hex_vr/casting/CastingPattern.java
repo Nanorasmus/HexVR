@@ -36,7 +36,6 @@ public class CastingPattern {
     public ArrayList<CastingPoint> castingPoints;
     public ResolvedPattern pattern;
     public ArrayList<Text> stack = new ArrayList<>();
-    public Text ravenMind = Text.of("null");
     public ArrayList<Entity> textEntities = new ArrayList<>();
 
     private float red, green, blue = 0;
@@ -83,7 +82,6 @@ public class CastingPattern {
     }
 
     public void updateResolution(ControllerInfo info) {
-        MinecraftClient.getInstance().player.sendMessage(Text.of("Stack size: " + info.getStack().size()));
 
         // Update type
         pattern.setType(info.getResolutionType());
@@ -94,13 +92,6 @@ public class CastingPattern {
             stack.add(HexIotaTypes.getDisplay(tag));
         }
         Collections.reverse(stack);
-
-        // Update ravenmind
-        if (info.getRavenmind() != null) {
-            ravenMind = HexIotaTypes.getDisplay(info.getRavenmind());
-        } else {
-            ravenMind = Text.of("null");
-        }
 
 
         // Update color
@@ -134,7 +125,6 @@ public class CastingPattern {
         }
         if (textEntities.isEmpty() && isInRange) {
             double size = stack.size() * textDistance;
-            client.player.sendMessage(Text.of("Initializing text!"));
 
             for (int i = 0; i < stack.size(); i++) {
                 double y = origin.y - originRadius * 0.9 - i * textDistance;
@@ -150,13 +140,9 @@ public class CastingPattern {
                 client.world.addEntity(entity.getUuid().hashCode(), entity);
             }
         } else if (!textEntities.isEmpty() && !isInRange) {
-            client.player.sendMessage(Text.of("Clearing text!"));
             clearText();
         }
 
-        if (!textEntities.isEmpty()) {
-            client.player.sendMessage(Text.of("First entity: " + textEntities.get(0)));
-        }
 
         // Render points
         for (int i = 0; i < castingPoints.size(); i++) {
