@@ -6,16 +6,17 @@ import at.petrak.hexcasting.api.spell.casting.ResolvedPatternType;
 import at.petrak.hexcasting.api.spell.math.HexCoord;
 import at.petrak.hexcasting.api.spell.math.HexDir;
 import at.petrak.hexcasting.api.spell.math.HexPattern;
+import at.petrak.hexcasting.common.items.ItemStaff;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import at.petrak.hexcasting.common.network.MsgNewSpellPatternSyn;
 import at.petrak.hexcasting.xplat.IClientXplatAbstractions;
 import me.nanorasmus.nanodev.hex_vr.HexVRClient;
 import me.nanorasmus.nanodev.hex_vr.particle.CastingParticles;
-import me.nanorasmus.nanodev.hex_vr.vr.VRPlugin;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.nbt.NbtCompound;
@@ -82,6 +83,7 @@ public class Casting {
     static ArrayList<CastingPattern> castingPatterns = new ArrayList<>();
     public static ArrayList<Text> stack = new ArrayList<>();
     public static Text ravenMind = null;
+    public static int parenCount = 0;
 
 
     private static final float TEXT_DISTANCE = 9;
@@ -89,25 +91,69 @@ public class Casting {
 
     boolean patternsAlwaysVisible = HexVRClient.config.patternsAlwaysVisible;
     boolean usingRightHand;
-    Hand hand;
     int controllerIndex;
     ArrayList<Particle> handParticles = new ArrayList<>();
 
     static double particleDistance = gridSize / 10;
 
     private static void clear() {
+        // Delete all particles
         for (CastingPattern castingPattern : castingPatterns) {
             castingPattern.prepareDeletion();
         }
+
+        int dropCount = stack.size();
+
+        if (parenCount > 0) {
+            // Server-Client loop to get out of introspection
+            HexPattern retrospection = new HexPattern(HexDir.EAST, new ArrayList<>());
+            retrospection.tryAppendDir(HexDir.SOUTH_EAST);
+            retrospection.tryAppendDir(HexDir.SOUTH_WEST);
+            retrospection.tryAppendDir(HexDir.WEST);
+            for (int i = 0; i < parenCount; i++) {
+                IClientXplatAbstractions.INSTANCE.sendPacketToServer(
+                        new MsgNewSpellPatternSyn(getHandWithStaff(MinecraftClient.getInstance().player), retrospection, patterns)
+                );
+            }
+            dropCount += 1;
+        }
+
+        // Clear serverside stack
+        if (!stack.isEmpty()) {
+            HexPattern stackClearPattern = new HexPattern(HexDir.SOUTH_EAST, new ArrayList<>());
+            stackClearPattern.tryAppendDir(HexDir.NORTH_EAST);
+
+            for (int i = 1; i < dropCount; i++) {
+                stackClearPattern.tryAppendDir(HexDir.SOUTH_EAST);
+                stackClearPattern.tryAppendDir(HexDir.NORTH_EAST);
+            }
+
+            IClientXplatAbstractions.INSTANCE.sendPacketToServer(
+                    new MsgNewSpellPatternSyn(getHandWithStaff(MinecraftClient.getInstance().player), stackClearPattern, patterns)
+            );
+        }
+
+        // Clear clientside stack
+        ravenMind = null;
+        stack.clear();
+
+        // Clear patterns
         castingPatterns.clear();
         patterns.clear();
 
-        ravenMind = null;
-        stack.clear();
     }
 
 
     public static void updateInstancesS2C(ControllerInfo info, int index) {
+        parenCount = info.getParenCount();
+        // Update stack
+        stack.clear();
+        for (NbtCompound tag : info.getStack()) {
+            stack.add(HexIotaTypes.getDisplay(tag));
+        }
+        Collections.reverse(stack);
+
+
         if (info.isStackClear()) {
             clear();
             return;
@@ -116,15 +162,6 @@ public class Casting {
         if (index < castingPatterns.size()) {
             castingPatterns.get(index).updateResolution(info);
         }
-
-
-
-        // Update stack
-        stack.clear();
-        for (NbtCompound tag : info.getStack()) {
-            stack.add(HexIotaTypes.getDisplay(tag));
-        }
-        Collections.reverse(stack);
 
 
         // Update ravenmind
@@ -142,11 +179,9 @@ public class Casting {
         // Set controller index
         // Left hand default
         controllerIndex = 1;
-        hand = Hand.OFF_HAND;
         // Check for right hand
         if (rightHand) {
             controllerIndex = 0;
-            hand = Hand.MAIN_HAND;
         }
 
         if (instances.isEmpty()) {
@@ -282,13 +317,13 @@ public class Casting {
 
     void updateNormals() {
         if (simpleNormals) {
-            reverseNormal = VRPlugin.apiInstance.getPreTickVRPlayer().getHMD().position().subtract(0, 0, 0).subtract(getPoint());
+            reverseNormal = DATA_HOLDER.vrPlayer.vrdata_world_render.hmd.getPosition().subtract(0, 0, 0).subtract(getPoint());
             normal = reverseNormal.negate();
             upNormal = new Vec3d(0, 1, 0);
             rightNormal = normal.crossProduct(upNormal).normalize();
 
         } else {
-            reverseNormal = VRPlugin.apiInstance.getPreTickVRPlayer().getController(controllerIndex).getLookAngle();
+            reverseNormal = DATA_HOLDER.vrPlayer.vrdata_world_render.getController(controllerIndex).getDirection();
             normal = reverseNormal.negate();
             rightNormal = normal.crossProduct(new Vec3d(0, 1, 0)).normalize();
             upNormal = normal.crossProduct(rightNormal).normalize();
@@ -553,6 +588,13 @@ public class Casting {
         return new HexCoord(0, index * 64);
     }
 
+    static Hand getHandWithStaff(ClientPlayerEntity p) {
+        if (p.getOffHandStack().getItem() instanceof ItemStaff) {
+            return Hand.OFF_HAND;
+        }
+        return Hand.MAIN_HAND;
+    }
+
     void finishCasting(MinecraftClient client) {
         if (points.size() > 2) {
             // Initialize Pattern
@@ -565,7 +607,7 @@ public class Casting {
 
             // Send pattern to server
             IClientXplatAbstractions.INSTANCE.sendPacketToServer(
-                    new MsgNewSpellPatternSyn(hand, pattern, patterns)
+                    new MsgNewSpellPatternSyn(getHandWithStaff(client.player), pattern, patterns)
             );
 
 

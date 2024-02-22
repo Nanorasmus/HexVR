@@ -14,7 +14,6 @@ public class HexCastingNewSpellPatternS2CMixin {
 
     @Inject(at = @At("TAIL"), method = "handle", remap = false)
     private static void handle(MsgNewSpellPatternAck self, CallbackInfo ci) {
-        MinecraftClient.getInstance().player.sendMessage(Text.of("Sending message"));
         Casting.updateInstancesS2C(self.info(), self.index());
     }
 }
