@@ -1,6 +1,6 @@
 package me.nanorasmus.nanodev.hex_vr.casting;
 
-import at.petrak.hexcasting.api.spell.math.HexDir;
+import at.petrak.hexcasting.api.casting.math.HexDir;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.text.Text;

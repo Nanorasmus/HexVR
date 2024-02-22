@@ -23,10 +23,10 @@
     "hex_vr.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14",
+    "fabricloader": ">=0.15",
     "fabric": "*",
-    "minecraft": "=1.19.2",
-    "hexcasting": ">=0.10.3",
+    "minecraft": "=1.20.1",
+    "hexcasting": ">=0.11.1-7-pre-619",
     "vrapi": ">=3.0.7"
   }
 }

@@ -1,8 +1,9 @@
 package me.nanorasmus.nanodev.hex_vr.casting;
 
-import at.petrak.hexcasting.api.spell.casting.ControllerInfo;
-import at.petrak.hexcasting.api.spell.casting.ResolvedPattern;
-import at.petrak.hexcasting.api.spell.casting.ResolvedPatternType;
+import at.petrak.hexcasting.api.casting.eval.ExecutionClientView;
+import at.petrak.hexcasting.api.casting.eval.ResolvedPattern;
+import at.petrak.hexcasting.api.casting.eval.ResolvedPatternType;
+import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import me.nanorasmus.nanodev.hex_vr.entity.custom.TextEntity;
 import me.nanorasmus.nanodev.hex_vr.particle.CastingParticles;
@@ -81,15 +82,15 @@ public class CastingPattern {
         initializeLines(MinecraftClient.getInstance());
     }
 
-    public void updateResolution(ControllerInfo info) {
+    public void updateResolution(ExecutionClientView info) {
 
         // Update type
         pattern.setType(info.getResolutionType());
 
         // Update stack
         stack.clear();
-        for (NbtCompound tag : info.getStack()) {
-            stack.add(HexIotaTypes.getDisplay(tag));
+        for (NbtCompound tag : info.getStackDescs()) {
+            stack.add(IotaType.getDisplay(tag));
         }
         Collections.reverse(stack);
 
