@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "hex_vr",
+  "version": "${version}",
+
+  "name": "HexVR",
+  "description": "",
+  "authors": [],
+  "contact": {},
+
+  "license": "MIT",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.nanorasmus.nanodev.hexvr.fabric.HexVRFabric"
+    ]
+  },
+  "mixins": [
+    "hex_vr.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14",
+    "fabric": "*",
+    "minecraft": "=1.19.2",
+    "hexcasting": ">=0.10.3"
+  }
+}
