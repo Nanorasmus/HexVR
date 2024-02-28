@@ -111,5 +111,20 @@
       <option name="name" value="maven10" />
       <option name="url" value="https://maven.wispforest.io" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="https://maven.architectury.dev/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="LoomTransformedForgeDependencies" />
+      <option name="name" value="LoomTransformedForgeDependencies" />
+      <option name="url" value="file:/$USER_HOME$/.gradle/caches/fabric-loom/forge/transformed-dependencies-v1/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Forge" />
+      <option name="name" value="Forge" />
+      <option name="url" value="https://maven.minecraftforge.net/" />
+    </remote-repository>
   </component>
 </project>
