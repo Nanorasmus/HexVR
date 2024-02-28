@@ -11,6 +11,13 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/HexVR.forge.test.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/HexVR.forge.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HexVR.main.iml" filepath="$PROJECT_DIR$/.idea/modules/HexVR.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/HexVR.test.iml" filepath="$PROJECT_DIR$/.idea/modules/HexVR.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/me.nanorasmus.nanodev.HexVR.common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/me.nanorasmus.nanodev.HexVR.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/me.nanorasmus.nanodev.HexVR.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/me.nanorasmus.nanodev.HexVR.common.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/me.nanorasmus.nanodev.HexVR.common.test.iml" filepath="$PROJECT_DIR$/.idea/modules/common/me.nanorasmus.nanodev.HexVR.common.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/me.nanorasmus.nanodev.HexVR.fabric.main.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/me.nanorasmus.nanodev.HexVR.fabric.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/me.nanorasmus.nanodev.HexVR.fabric.test.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/me.nanorasmus.nanodev.HexVR.fabric.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/me.nanorasmus.nanodev.HexVR.forge.main.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/me.nanorasmus.nanodev.HexVR.forge.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/me.nanorasmus.nanodev.HexVR.forge.test.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/me.nanorasmus.nanodev.HexVR.forge.test.iml" />
     </modules>
   </component>
 </project>

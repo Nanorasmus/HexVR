@@ -23,7 +23,9 @@ dependencies {
 
 
     modImplementation "maven.modrinth:vivecraft:${vivecraft}-fabric"
-    modImplementation "at.petra-k.hexcasting:${fabric_hex_casting}"
+    modImplementation("at.petra-k.hexcasting:${fabric_hex_casting}"){
+        exclude(group: "maven.modrinth:gravity-api")
+    }
 
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
