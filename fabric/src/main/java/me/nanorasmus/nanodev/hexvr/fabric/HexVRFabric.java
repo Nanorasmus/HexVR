@@ -8,7 +8,5 @@ public class HexVRFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         HexVR.init();
-
-        HexVRConfigFabric.setup();
     }
 }

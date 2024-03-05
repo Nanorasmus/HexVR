@@ -15,6 +15,9 @@
   "entrypoints": {
     "main": [
       "me.nanorasmus.nanodev.hexvr.fabric.HexVRFabric"
+    ],
+    "client": [
+      "me.nanorasmus.nanodev.hexvr.fabric.HexVRFabricClient"
     ]
   },
   "mixins": [
@@ -24,6 +27,7 @@
     "fabricloader": ">=0.14",
     "fabric": "*",
     "minecraft": "=1.19.2",
-    "hexcasting": ">=0.10.3"
+    "hexcasting": ">=0.10.3",
+    "vivecraft": ">=1.19.2-1.1.2"
   }
 }

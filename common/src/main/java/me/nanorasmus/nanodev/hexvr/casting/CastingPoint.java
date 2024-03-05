@@ -1,12 +1,15 @@
 package me.nanorasmus.nanodev.hexvr.casting;
 
 import at.petrak.hexcasting.api.spell.math.HexDir;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
+
+import static me.nanorasmus.nanodev.hexvr.casting.Casting.castingPatterns;
 
 public class CastingPoint {
     public Vec3d point;
@@ -38,11 +41,21 @@ public class CastingPoint {
     public void prepareDeletion() {
         for (Particle particle : particles) {
             if (particle == null) {
-                MinecraftClient.getInstance().player.sendMessage(Text.of("There was a null particle!"));
                 continue;
             }
 
             particle.markDead();
         }
+    }
+
+
+    // Networking
+    public void encodeToBuffer(ByteBuf buf) {
+        buf.writeDouble(point.x);
+        buf.writeDouble(point.y);
+        buf.writeDouble(point.z);
+    }
+    public static CastingPoint decodeFromBuffer(ByteBuf buf) {
+        return new CastingPoint(new Vec3d(buf.readDouble(), buf.readDouble(), buf.readDouble()));
     }
 }

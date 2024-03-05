@@ -96,7 +96,7 @@ public class Casting {
     int controllerIndex;
     ArrayList<Particle> handParticles = new ArrayList<>();
 
-    static double particleDistance = gridSize / 10;
+    public static double particleDistance = gridSize / 10;
 
     private static void clear() {
         // Delete all particles
@@ -143,6 +143,8 @@ public class Casting {
         castingPatterns.clear();
         patterns.clear();
 
+        // Clear serverside particles
+        ServerCasting.clearPatterns();
     }
 
 
@@ -198,16 +200,22 @@ public class Casting {
      * */
     void initStatic() {
         isFirst = true;
-        CastingPattern.init();
         ClientGuiEvent.RENDER_HUD.register((matrixStack, tickDelta) -> {
-            TextRenderer textRenderer = MinecraftClient.getInstance().textRenderer;
+            MinecraftClient client = MinecraftClient.getInstance();
 
+            // Return if client is null or if player is not in vr
+            if (client.player == null || !VRState.vrRunning || DATA_HOLDER.vrPlayer == null || DATA_HOLDER.vrPlayer.vrdata_world_render == null)
+                return;
+
+            TextRenderer textRenderer = client.textRenderer;
+
+            // Ravenmind
             if (ravenMind != null) {
-                MinecraftClient client = MinecraftClient.getInstance();
                 int width = client.getWindow().getScaledWidth();
                 textRenderer.drawWithShadow(matrixStack, ravenMind, width - textRenderer.getWidth(ravenMind) * 2, 10, 0);
             }
 
+            // Stack
             for (int i = 0; i < stack.size(); i++) {
                 textRenderer.drawWithShadow(matrixStack, stack.get(i), 0, TEXT_DISTANCE * i, 0);
             }
@@ -265,10 +273,10 @@ public class Casting {
         for (int i = 0; i < points.size(); i++) {
             CastingPoint point = points.get(i);
             point.filterParticles();
-            point.addParticle(renderSpot(client, point.point, 1));
+            point.addParticle(renderSpot(point.point, 1));
             if (i > 0) {
                 Vec3d prevPoint = points.get(i - 1).point;
-                point.addParticle(renderLine(client, prevPoint, point.point));
+                point.addParticle(renderLine(prevPoint, point.point));
             }
         }
 
@@ -277,7 +285,7 @@ public class Casting {
         for (int i = 0; i < pointsAround.size(); i++) {
             Vec3d point = pointsAround.get(i);
 
-            renderSpot(client, point, 1);
+            renderSpot(point, 1);
         }
 
 
@@ -347,7 +355,7 @@ public class Casting {
             double lerpIncrement = increment / direction.length();
 
             particles.add(
-                    renderLine(MinecraftClient.getInstance(), from.lerp(to, lerpIncrement), to)
+                    renderLine(from.lerp(to, lerpIncrement), to)
             );
         }
 
@@ -586,7 +594,7 @@ public class Casting {
             patterns.add(resolvedPattern);
 
             // Add floating pattern
-            castingPatterns.add(new CastingPattern((ArrayList<CastingPoint>) points.clone(), resolvedPattern, castingPatterns.size()));
+            castingPatterns.add(new CastingPattern((ArrayList<CastingPoint>) points.clone(), castingPatterns.size()));
 
             // Send pattern to server
             IClientXplatAbstractions.INSTANCE.sendPacketToServer(

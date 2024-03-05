@@ -1,0 +1,66 @@
+{
+  "name": "hex_vr.entry.vr_patterns",
+  "category": "hexcasting:patterns",
+  "_flag": "hex_vr:vr_server",
+  "icon": "minecraft:iron_helmet",
+  "sortnum": 7,
+  "advancement": "hexcasting:root",
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hex_vr:head_pos",
+      "anchor": "hex_vr:head_pos",
+      "input": "entity",
+      "output": "vec|null",
+      "text": "hex_vr.page.vr_patterns.0"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hex_vr:head_rot",
+      "anchor": "hex_vr:head_rot",
+      "input": "entity",
+      "output": "vec|null",
+      "text": "hex_vr.page.vr_patterns.1"
+    },
+
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hex_vr:left_hand_pos",
+      "anchor": "hex_vr:left_hand_pos",
+      "input": "entity",
+      "output": "vec|null",
+      "text": "hex_vr.page.vr_patterns.2"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hex_vr:right_hand_pos",
+      "anchor": "hex_vr:right_hand_pos",
+      "input": "entity",
+      "output": "vec|null",
+      "text": "hex_vr.page.vr_patterns.3"
+    },
+
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hex_vr:left_hand_rot",
+      "anchor": "hex_vr:left_hand_rot",
+      "input": "entity",
+      "output": "vec|null",
+      "text": "hex_vr.page.vr_patterns.4"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hex_vr:right_hand_rot",
+      "anchor": "hex_vr:right_hand_rot",
+      "input": "entity",
+      "output": "vec|null",
+      "text": "hex_vr.page.vr_patterns.5"
+    },
+
+
+    {
+      "type": "patchouli:text",
+      "text": "hex_vr.page.vr_patterns.note"
+    }
+  ]
+}
