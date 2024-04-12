@@ -34,6 +34,14 @@ public class RegisterPatterns {
                     new Identifier(HexVR.MOD_ID, "left_hand_rot"),
                     new OpHandRotation(1));
 
+            // Hand Velocity
+            PatternRegistry.mapPattern(HexPattern.fromAngles("qwaa", HexDir.EAST),
+                    new Identifier(HexVR.MOD_ID, "right_hand_vel"),
+                    new OpHandVelocity(0));
+            PatternRegistry.mapPattern(HexPattern.fromAngles("ewdd", HexDir.WEST),
+                    new Identifier(HexVR.MOD_ID, "left_hand_vel"),
+                    new OpHandVelocity(1));
+
         } catch (PatternRegistry.RegisterPatternException exn) {
             exn.printStackTrace();
         }

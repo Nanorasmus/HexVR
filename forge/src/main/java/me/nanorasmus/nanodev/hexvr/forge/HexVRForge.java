@@ -24,5 +24,11 @@ public class HexVRForge {
                 return HexVR::initClient;
             }
         });
+        DistExecutor.unsafeRunWhenOn(Dist.DEDICATED_SERVER, new Supplier<Runnable>() {
+            @Override
+            public Runnable get() {
+                return HexVR::initServer;
+            }
+        });
     }
 }

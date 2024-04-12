@@ -57,6 +57,23 @@
       "text": "hex_vr.page.vr_patterns.5"
     },
 
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hex_vr:left_hand_vel",
+      "anchor": "hex_vr:left_hand_vel",
+      "input": "entity",
+      "output": "vec|null",
+      "text": "hex_vr.page.vr_patterns.6"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hex_vr:right_hand_vel",
+      "anchor": "hex_vr:right_hand_vel",
+      "input": "entity",
+      "output": "vec|null",
+      "text": "hex_vr.page.vr_patterns.7"
+    },
+
 
     {
       "type": "patchouli:text",

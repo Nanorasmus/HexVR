@@ -47,4 +47,9 @@ public class HexVR
 		KeyInputsHandler.register();
         return null;
     }
+
+	public static Runnable initServer() {
+		ServerCasting.initServer();
+		return null;
+	}
 }

@@ -18,6 +18,9 @@
     ],
     "client": [
       "me.nanorasmus.nanodev.hexvr.fabric.HexVRFabricClient"
+    ],
+    "server": [
+      "me.nanorasmus.nanodev.hexvr.fabric.HexVRFabricServer"
     ]
   },
   "mixins": [
