@@ -35,8 +35,6 @@ public class HexVR
 	}
 
 	public static Runnable initClient() {
-		HexVRConfig.init();
-
 		// Register Visuals
 		EntityRendererRegistry.register(Suppliers.ofInstance(EntityType.ARMOR_STAND), TextEntityRenderer::new);
 		CastingParticles.registerParticles();

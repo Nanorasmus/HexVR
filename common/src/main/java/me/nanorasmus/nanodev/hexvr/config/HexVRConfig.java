@@ -1,11 +1,7 @@
 package me.nanorasmus.nanodev.hexvr.config;
 
 public class HexVRConfig {
-    public static HexVRConfigClient client;
-
-    public static void init() {
-        client = new HexVRConfigClient();
-    }
+    public static HexVRConfigClient client = new HexVRConfigClient();
 
     public static class HexVRConfigClient {
         public double gridSize = 0.2;
