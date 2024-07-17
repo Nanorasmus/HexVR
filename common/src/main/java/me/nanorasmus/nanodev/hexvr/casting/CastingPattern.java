@@ -2,12 +2,18 @@ package me.nanorasmus.nanodev.hexvr.casting;
 
 import at.petrak.hexcasting.api.spell.casting.ControllerInfo;
 import at.petrak.hexcasting.api.spell.casting.ResolvedPatternType;
+import at.petrak.hexcasting.api.utils.HexUtils;
+import at.petrak.hexcasting.api.utils.NbtCompoundBuilder;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import io.netty.buffer.ByteBuf;
 import me.nanorasmus.nanodev.hexvr.entity.custom.TextEntity;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.util.TextCollector;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.Vec3d;
 
 import java.awt.*;
@@ -31,7 +37,7 @@ public class CastingPattern {
     public double originRadius;
     public ArrayList<CastingPoint> castingPoints;
     public ResolvedPatternType resolvedPatternType;
-    public ArrayList<Text> stack = new ArrayList<>();
+    public ArrayList<OrderedText> stack = new ArrayList<>();
     public ArrayList<Entity> textEntities = new ArrayList<>();
 
     public float red, green, blue = 0;
@@ -75,9 +81,10 @@ public class CastingPattern {
         blue = (float) color.getBlue() / 256;
 
         if (!isLocal) {
-            red = Math.max(0, red - 0.1f);
-            green = Math.max(0, green - 0.1f);
-            blue = Math.max(0, blue - 0.1f);
+            MinecraftClient.getInstance().player.sendMessage(Text.of("Non-Local player pattern updating colors!"));
+            red = Math.max(0, red - 0.5f);
+            green = Math.max(0, green - 0.5f);
+            blue = Math.max(0, blue - 0.5f);
         }
 
         initializeLines(this);
@@ -90,8 +97,13 @@ public class CastingPattern {
 
         // Update stack
         stack.clear();
+        int width = 300;
         for (NbtCompound tag : info.getStack()) {
-            stack.add(HexIotaTypes.getDisplay(tag));
+            if (stack.size() >= 5) {
+                stack.add(Text.literal("...").formatted(Formatting.GRAY).asOrderedText() );
+                break;
+            }
+            stack.add(HexIotaTypes.getDisplayWithMaxWidth(tag, width, MinecraftClient.getInstance().textRenderer));
         }
         Collections.reverse(stack);
 
@@ -117,12 +129,29 @@ public class CastingPattern {
         // Render points
         for (int i = 0; i < castingPoints.size(); i++) {
             CastingPoint point = castingPoints.get(i);
+
+            // Filter particle list for dead particles
             point.filterParticles();
-            point.addParticle(renderSpot(point.point, 1, red, green, blue));
-            if (i > 0) {
-                Vec3d prevPoint = castingPoints.get(i - 1).point;
-                point.addParticle(renderLine(prevPoint, point.point, red, green, blue));
+
+            // Particles for pattern points
+            if (point.pointParticleTimer <= 0) {
+                point.pointParticleTimer = point.pointParticleCooldown;
+
+                point.addParticle(renderSpot(point.point, point.pointParticleCooldown - 1, red, green, blue));
             }
+            point.pointParticleTimer -= 1;
+
+            // Particles for pattern lines
+            if (i > 0) {
+                if (point.lineParticleTimer <= 0) {
+                    point.lineParticleTimer = point.lineParticleCooldown;
+
+                    Vec3d prevPoint = castingPoints.get(i - 1).point;
+                    point.addParticle(renderLine(prevPoint, point.point, red, green, blue));
+                }
+                point.lineParticleTimer -= 1;
+            }
+
         }
 
         // Don't render stack if not local
@@ -145,7 +174,7 @@ public class CastingPattern {
                 TextEntity entity = new TextEntity(origin.x, y, origin.z);
                 entity.setNoGravity(true);
                 entity.setInvisible(true);
-                entity.setCustomName(stack.get(i));
+                entity.patterns = stack.get(i);
                 entity.setCustomNameVisible(true);
 
                 textEntities.add(entity);
