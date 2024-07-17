@@ -3,6 +3,7 @@ package me.nanorasmus.nanodev.hexvr.networking;
 import dev.architectury.networking.NetworkChannel;
 import me.nanorasmus.nanodev.hexvr.HexVR;
 import me.nanorasmus.nanodev.hexvr.networking.custom.ClearPlayerPatterns;
+import me.nanorasmus.nanodev.hexvr.networking.custom.PatternInteractC2S;
 import me.nanorasmus.nanodev.hexvr.networking.custom.SpawnPattern;
 import net.minecraft.util.Identifier;
 
@@ -12,5 +13,6 @@ public class NetworkingHandler {
     public static void registerPackets() {
         CHANNEL.register(SpawnPattern.class, SpawnPattern::encode, SpawnPattern::new, SpawnPattern::apply);
         CHANNEL.register(ClearPlayerPatterns.class, ClearPlayerPatterns::encode, ClearPlayerPatterns::new, ClearPlayerPatterns::apply);
+        CHANNEL.register(PatternInteractC2S.class, PatternInteractC2S::encode, PatternInteractC2S::new, PatternInteractC2S::apply);
     }
 }

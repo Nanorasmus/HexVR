@@ -18,6 +18,8 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.ClickEvent;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Style;
@@ -554,6 +556,7 @@ public class Casting {
         // Trigger new point
         if (findClosestSnappingPointDistance(currentPos) <= snappingDistance) {
             addPoint(currentPos);
+            client.world.playSound(client.player.getBlockPos(), SoundEvents.BLOCK_LANTERN_HIT, SoundCategory.PLAYERS, 0.4F, 4, false);
         }
 
         if (points.size() > 1 && currentPos.distanceTo(points.get(points.size() - 2).point) <= backTrackDistance) {

@@ -2,15 +2,19 @@ package me.nanorasmus.nanodev.hexvr.casting;
 
 import at.petrak.hexcasting.api.spell.casting.ControllerInfo;
 import at.petrak.hexcasting.api.spell.casting.ResolvedPatternType;
+import at.petrak.hexcasting.api.spell.iota.Iota;
 import at.petrak.hexcasting.api.utils.HexUtils;
 import at.petrak.hexcasting.api.utils.NbtCompoundBuilder;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import io.netty.buffer.ByteBuf;
 import me.nanorasmus.nanodev.hexvr.entity.custom.TextEntity;
+import me.nanorasmus.nanodev.hexvr.networking.NetworkingHandler;
+import me.nanorasmus.nanodev.hexvr.networking.custom.PatternInteractC2S;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.TextCollector;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -20,6 +24,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.UUID;
 
 import static me.nanorasmus.nanodev.hexvr.particle.CastingParticles.*;
 
@@ -37,6 +42,7 @@ public class CastingPattern {
     public double originRadius;
     public ArrayList<CastingPoint> castingPoints;
     public ResolvedPatternType resolvedPatternType;
+    public ArrayList<NbtCompound> stackRaw = new ArrayList<>();
     public ArrayList<OrderedText> stack = new ArrayList<>();
     public ArrayList<Entity> textEntities = new ArrayList<>();
 
@@ -46,6 +52,9 @@ public class CastingPattern {
 
 
     public CastingPattern(ArrayList<CastingPoint> points, int index) {
+        casterUUID = MinecraftClient.getInstance().player.getUuid();
+        patternUUID = UUID.randomUUID();
+
         castingPoints = points;
         resolvedPatternType = ResolvedPatternType.UNRESOLVED;
         this.index = index;
@@ -81,7 +90,6 @@ public class CastingPattern {
         blue = (float) color.getBlue() / 256;
 
         if (!isLocal) {
-            MinecraftClient.getInstance().player.sendMessage(Text.of("Non-Local player pattern updating colors!"));
             red = Math.max(0, red - 0.5f);
             green = Math.max(0, green - 0.5f);
             blue = Math.max(0, blue - 0.5f);
@@ -98,20 +106,22 @@ public class CastingPattern {
         // Update stack
         stack.clear();
         int width = 300;
-        for (NbtCompound tag : info.getStack()) {
-            if (stack.size() >= 5) {
-                stack.add(Text.literal("...").formatted(Formatting.GRAY).asOrderedText() );
+        ArrayList<NbtCompound> tempStack = new ArrayList<>(info.getStack());
+        Collections.reverse(tempStack);
+        for (NbtCompound tag : tempStack) {
+            if (stack.size() >= 10) {
+                stack.add(Text.literal("...").formatted(Formatting.GRAY).asOrderedText());
                 break;
             }
             stack.add(HexIotaTypes.getDisplayWithMaxWidth(tag, width, MinecraftClient.getInstance().textRenderer));
         }
-        Collections.reverse(stack);
 
 
         // Update color
         updateColor();
 
         // Send to other players
+        stackRaw = new ArrayList<>(info.getStack());
         ServerCasting.sendPatternToServer(this);
     }
 
@@ -124,6 +134,11 @@ public class CastingPattern {
         }
         textEntities.clear();
     }
+
+    // ClientOnlyTimeoutRefreshTimer
+    private final int timeoutRefreshRate = 10;
+    private int timeoutRefreshTimer = 0;
+
     public void render(ArrayList<Vec3d> handPos) {
 
         // Render points
@@ -154,16 +169,23 @@ public class CastingPattern {
 
         }
 
-        // Don't render stack if not local
-        if (!isLocal) { return; }
-
-
         // Handle Stack and Ravenmind visibility
         boolean isInRange = false;
         for (Vec3d pos : handPos) {
             if (origin.isInRange(pos, originRadius)) {
                 isInRange = true;
             }
+        }
+        if (isInRange) {
+            if (timeoutRefreshTimer <= 0) {
+                // Tick server interaction
+                NetworkingHandler.CHANNEL.sendToServer(new PatternInteractC2S(this, true));
+                timeoutRefreshTimer = timeoutRefreshRate;
+            } else {
+                timeoutRefreshTimer--;
+            }
+        } else {
+            timeoutRefreshTimer = 0;
         }
         if (textEntities.isEmpty() && isInRange) {
             double size = stack.size() * textDistance;
@@ -180,8 +202,12 @@ public class CastingPattern {
                 textEntities.add(entity);
                 entity.spawn();
             }
+
         } else if (!textEntities.isEmpty() && !isInRange) {
             clearText();
+
+            // Notify server
+            NetworkingHandler.CHANNEL.sendToServer(new PatternInteractC2S(this, false));
         }
     }
 
@@ -217,28 +243,63 @@ public class CastingPattern {
     }
 
 
+    // UUID for pattern
+    public UUID casterUUID;
+    public UUID patternUUID;
+
+    // Server-only copy of stack after casting
+    public ArrayList<Iota> serverStack;
+
     // Networking encoding and decoding
     private final boolean isLocal;
-    public void encodeToBuffer(ByteBuf buf) {
+
+    public void encodeToBuffer(PacketByteBuf buf) {
+        buf.writeUuid(casterUUID);
+        buf.writeUuid(patternUUID);
+
         buf.writeInt(getResolvedPatternTypeInt());
         
         buf.writeInt(castingPoints.size());
-        for (int i = 0; i < castingPoints.size(); i++) {
-            castingPoints.get(i).encodeToBuffer(buf);
+        for (CastingPoint castingPoint : castingPoints) {
+            castingPoint.encodeToBuffer(buf);
+        }
+
+        buf.writeInt(stackRaw.size());
+        for (NbtCompound nbtCompound : stackRaw) {
+            buf.writeNbt(nbtCompound);
         }
     }
 
-    public CastingPattern(ByteBuf buf) {
+    public void refineClientStack() {
+        stack.clear();
+        int width = 300;
+        Collections.reverse(stackRaw);
+        for (NbtCompound tag : stackRaw) {
+            if (stack.size() >= 10) {
+                stack.add(Text.literal("...").formatted(Formatting.GRAY).asOrderedText());
+                break;
+            }
+            stack.add(HexIotaTypes.getDisplayWithMaxWidth(tag, width, MinecraftClient.getInstance().textRenderer));
+        }
+    }
+
+    public CastingPattern(PacketByteBuf buf) {
         castingPoints = new ArrayList<>();
         isLocal = false;
 
-
+        casterUUID = buf.readUuid();
+        patternUUID = buf.readUuid();
 
         setResolvedPatternType(buf.readInt());
 
         int size = buf.readInt();
         for (int i = 0; i < size; i++) {
             castingPoints.add(CastingPoint.decodeFromBuffer(buf));
+        }
+
+        int stackSize = buf.readInt();
+        for (int i = 0; i < stackSize; i++) {
+            stackRaw.add(buf.readNbt());
         }
 
         // Get origin
