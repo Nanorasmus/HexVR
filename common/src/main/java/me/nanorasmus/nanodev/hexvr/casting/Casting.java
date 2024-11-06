@@ -173,7 +173,7 @@ public class Casting {
             return;
         }
         // Update pattern
-        if (index < castingPatterns.size()) {
+        if (index >= 0 && index < castingPatterns.size()) {
             castingPatterns.get(index).updateResolution(info);
         }
 
