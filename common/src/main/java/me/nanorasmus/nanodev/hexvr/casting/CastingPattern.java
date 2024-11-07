@@ -1,8 +1,9 @@
 package me.nanorasmus.nanodev.hexvr.casting;
 
-import at.petrak.hexcasting.api.spell.casting.ControllerInfo;
-import at.petrak.hexcasting.api.spell.casting.ResolvedPatternType;
-import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
+import at.petrak.hexcasting.api.casting.eval.ExecutionClientView;
+import at.petrak.hexcasting.api.casting.eval.ResolvedPatternType;
+import at.petrak.hexcasting.api.casting.iota.IotaType;
+import at.petrak.hexcasting.api.casting.math.HexPattern;
 import io.netty.buffer.ByteBuf;
 import me.nanorasmus.nanodev.hexvr.entity.custom.TextEntity;
 import net.minecraft.entity.Entity;
@@ -31,6 +32,7 @@ public class CastingPattern {
     public double originRadius;
     public ArrayList<CastingPoint> castingPoints;
     public ResolvedPatternType resolvedPatternType;
+    public HexPattern pattern;
     public ArrayList<Text> stack = new ArrayList<>();
     public ArrayList<Entity> textEntities = new ArrayList<>();
 
@@ -39,11 +41,12 @@ public class CastingPattern {
 
 
 
-    public CastingPattern(ArrayList<CastingPoint> points, int index) {
+    public CastingPattern(ArrayList<CastingPoint> points, int index, HexPattern pattern) {
         castingPoints = points;
         resolvedPatternType = ResolvedPatternType.UNRESOLVED;
         this.index = index;
         isLocal = true;
+        this.pattern = pattern;
 
         // Get origin
         origin = new Vec3d(0, 0, 0);
@@ -83,15 +86,15 @@ public class CastingPattern {
         initializeLines(this);
     }
 
-    public void updateResolution(ControllerInfo info) {
+    public void updateResolution(ExecutionClientView info) {
 
         // Update type
         resolvedPatternType = info.getResolutionType();
 
         // Update stack
         stack.clear();
-        for (NbtCompound tag : info.getStack()) {
-            stack.add(HexIotaTypes.getDisplay(tag));
+        for (NbtCompound tag : info.getStackDescs()) {
+            stack.add(IotaType.getDisplay(tag));
         }
         Collections.reverse(stack);
 
@@ -161,7 +164,7 @@ public class CastingPattern {
             case UNRESOLVED -> 0;
             case ERRORED -> 1;
             case INVALID -> 2;
-            case EVALUATED -> 3;
+            case EVALUATED, UNDONE -> 3;
             case ESCAPED -> 4;
         };
     }
@@ -204,7 +207,6 @@ public class CastingPattern {
         isLocal = false;
 
 
-
         setResolvedPatternType(buf.readInt());
 
         int size = buf.readInt();
@@ -225,6 +227,8 @@ public class CastingPattern {
             double distance = origin.distanceTo(point.point);
             if (distance > originRadius) originRadius = distance;
         }
+
+        pattern = null;
     }
 
 }

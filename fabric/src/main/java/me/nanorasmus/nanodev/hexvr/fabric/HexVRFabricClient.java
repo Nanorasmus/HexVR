@@ -8,7 +8,7 @@ public class HexVRFabricClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        HexVRConfigFabric.setup();
+        //HexVRConfigFabric.setup();
 
         HexVR.initClient();
     }

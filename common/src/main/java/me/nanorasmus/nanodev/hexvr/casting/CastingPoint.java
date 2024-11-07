@@ -1,6 +1,7 @@
 package me.nanorasmus.nanodev.hexvr.casting;
 
-import at.petrak.hexcasting.api.spell.math.HexDir;
+import at.petrak.hexcasting.api.casting.math.HexDir;
+import at.petrak.hexcasting.api.casting.math.HexPattern;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.particle.Particle;
@@ -8,8 +9,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
-
-import static me.nanorasmus.nanodev.hexvr.casting.Casting.castingPatterns;
 
 public class CastingPoint {
     public Vec3d point;
@@ -48,6 +47,23 @@ public class CastingPoint {
         }
     }
 
+
+    public static HexPattern pointArrayToHexPattern(ArrayList<CastingPoint> points) {
+        return pointArrayToHexPattern(points, HexDir.EAST);
+    }
+    public static HexPattern pointArrayToHexPattern(ArrayList<CastingPoint> points, HexDir startingDir) {
+        if (points.size() < 3) {
+            return null;
+        }
+        HexPattern hexPattern = new HexPattern(startingDir, new ArrayList<>());
+
+        for (int i = 2; i < points.size(); i++) {
+            if (!hexPattern.tryAppendDir(points.get(i).direction)) {
+                MinecraftClient.getInstance().player.sendMessage(Text.of("Adding direction \"" + points.get(i).direction + "\" failed! Status: " + hexPattern));
+            }
+        }
+        return hexPattern;
+    }
 
     // Networking
     public void encodeToBuffer(ByteBuf buf) {

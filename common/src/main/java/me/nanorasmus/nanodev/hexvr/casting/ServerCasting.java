@@ -7,16 +7,13 @@ import me.nanorasmus.nanodev.hexvr.networking.NetworkingHandler;
 import me.nanorasmus.nanodev.hexvr.networking.custom.ClearPlayerPatterns;
 import me.nanorasmus.nanodev.hexvr.networking.custom.SpawnPattern;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.util.math.Vector3d;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.profiling.jfr.event.ServerTickTimeEvent;
 import org.vivecraft.server.ServerVRPlayers;
 import org.vivecraft.server.ServerVivePlayer;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;

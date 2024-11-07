@@ -2,15 +2,10 @@ package me.nanorasmus.nanodev.hexvr.fabric.config;
 
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import me.nanorasmus.nanodev.hexvr.config.HexVRConfig;
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.ConfigData;
-import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
-import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 
-@Config(name = "HexVR")
-public class HexVRConfigFabric extends PartitioningSerializer.GlobalData {
+//@Config(name = "HexVR")
+public class HexVRConfigFabric /*extends PartitioningSerializer.GlobalData */{
+    /*
     @ConfigEntry.Category("client")
     @ConfigEntry.Gui.TransitiveObject
     private final HexVRConfigClientFabric client = new HexVRConfigClientFabric();
@@ -46,4 +41,5 @@ public class HexVRConfigFabric extends PartitioningSerializer.GlobalData {
             backTrackDistance = Math.min(backTrackDistance, snappingDistance);
         }
     }
+     */
 }

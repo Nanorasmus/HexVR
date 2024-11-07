@@ -36,7 +36,7 @@ dependencies {
     // Hex things
     runtimeOnly "thedarkcolour:kotlinforforge:3.12.0"
     runtimeOnly "at.petra-k.paucal:paucal-forge-${minecraft_version}:${paucalVersion}"
-    runtimeOnly "vazkii.patchouli:Patchouli:${minecraft_version}-${patchouliVersion}"
+    runtimeOnly "vazkii.patchouli:Patchouli:${minecraft_version}-${forge_patchouliVersion}"
 
     // I don't know what this is but I'm scared to remove it
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
