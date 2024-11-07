@@ -44,7 +44,7 @@ public class CastingParticles {
         ArrayList<Particle> particles = new ArrayList<>();
 
         Vec3d direction = to.subtract(from);
-        for (int i = 1; i < 100; i++) {
+        for (int i = 1; i < 50; i++) {
             // Get total distance to be incremented
             double increment = particleDistance * i;
 
@@ -84,11 +84,12 @@ public class CastingParticles {
         particle.setColor(red, green, blue);
         return particle;
     }
+
     public static Particle renderLine(Vec3d from, Vec3d to) {
-        Vec3d vel = to.subtract(from).multiply(0.1);
+        Vec3d vel = to.subtract(from).multiply(0.1 / 1.5);
         Particle particle = client.particleManager.addParticle(CastingParticles.STATIC_PARTICLE, from.x, from.y, from.z, vel.x, vel.y, vel.z);
-        particle.setMaxAge(10);
-        particle.scale(0.1f);
+        particle.setMaxAge(15);
+        particle.scale(0.15f);
         return particle;
     }
 }

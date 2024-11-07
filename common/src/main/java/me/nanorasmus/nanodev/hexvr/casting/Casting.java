@@ -4,6 +4,7 @@ package me.nanorasmus.nanodev.hexvr.casting;
 import at.petrak.hexcasting.api.casting.eval.ExecutionClientView;
 import at.petrak.hexcasting.api.casting.eval.ResolvedPattern;
 import at.petrak.hexcasting.api.casting.eval.ResolvedPatternType;
+import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.api.casting.math.HexCoord;
 import at.petrak.hexcasting.api.casting.math.HexDir;
@@ -18,16 +19,18 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.ClickEvent;
+import net.minecraft.text.OrderedText;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 import org.vivecraft.client_vr.ClientDataHolderVR;
 import org.vivecraft.client_vr.VRState;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static me.nanorasmus.nanodev.hexvr.particle.CastingParticles.renderLine;
@@ -82,8 +85,8 @@ public class Casting {
 
     static ArrayList<ResolvedPattern> patterns = new ArrayList<>();
     static ArrayList<CastingPattern> castingPatterns = new ArrayList<>();
-    public static ArrayList<Text> stack = new ArrayList<>();
-    public static Text ravenMind = null;
+    public static ArrayList<OrderedText> stack = new ArrayList<>();
+    public static OrderedText ravenMind = null;
     public static int parenCount = 0;
     public static HexPattern introspection = new HexPattern(HexDir.WEST, new ArrayList<>());
     public static HexPattern retrospection = new HexPattern(HexDir.EAST, new ArrayList<>());
@@ -145,12 +148,18 @@ public class Casting {
         ServerCasting.clearPatterns();
     }
 
-
     public static void updateInstancesS2C(ExecutionClientView info, int index) {
+        TextRenderer textRendererFont = MinecraftClient.getInstance().textRenderer;
+        int width = 450;
+
         // Update stack
         stack.clear();
         for (NbtCompound tag : info.getStackDescs()) {
-            stack.add(IotaType.getDisplay(tag));
+            if (stack.size() >= 24) {
+                stack.add(Text.literal("...").formatted(Formatting.GRAY).asOrderedText());
+                break;
+            }
+            stack.add(IotaType.getDisplayWithMaxWidth(tag, width, textRendererFont));
         }
         Collections.reverse(stack);
 
@@ -192,7 +201,7 @@ public class Casting {
 
         // Update ravenmind
         if (info.getRavenmind() != null) {
-            ravenMind = IotaType.getDisplay(info.getRavenmind());
+            ravenMind = IotaType.getDisplayWithMaxWidth(info.getRavenmind(), width, textRendererFont);
         } else {
             ravenMind = null;
         }
@@ -301,7 +310,7 @@ public class Casting {
         }
     }
 
-    void makeParticles(MinecraftClient client) {
+    void makeParticles() {
         // Previous points
         for (int i = 0; i < points.size(); i++) {
             CastingPoint point = points.get(i);
@@ -585,7 +594,7 @@ public class Casting {
             removeNewestPoint();
         }
 
-        makeParticles(client);
+        makeParticles();
 
 
     }

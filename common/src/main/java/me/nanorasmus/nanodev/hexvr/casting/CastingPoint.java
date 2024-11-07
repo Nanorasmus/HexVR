@@ -14,6 +14,10 @@ public class CastingPoint {
     public Vec3d point;
     public HexDir direction;
 
+    public final int pointParticleCooldown = 30;
+    public int pointParticleTimer = 0;
+    public final int lineParticleCooldown = 2;
+    public int lineParticleTimer = 0;
     public ArrayList<Particle> particles = new ArrayList<>();
 
     public CastingPoint(Vec3d point) {

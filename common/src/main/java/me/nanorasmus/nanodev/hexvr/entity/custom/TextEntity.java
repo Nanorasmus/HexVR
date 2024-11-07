@@ -3,9 +3,12 @@ package me.nanorasmus.nanodev.hexvr.entity.custom;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.decoration.ArmorStandEntity;
+import net.minecraft.text.OrderedText;
 import net.minecraft.world.World;
 
 public class TextEntity extends ArmorStandEntity {
+    public OrderedText patterns = OrderedText.EMPTY;
+
     boolean isTextEntity = true;
 
     public TextEntity(EntityType<TextEntity> entityType, World world) {
