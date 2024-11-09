@@ -590,7 +590,8 @@ public class Casting {
         // Trigger new point
         if (findClosestSnappingPointDistance(currentPos) <= snappingDistance) {
             addPoint(currentPos);
-            client.world.playSound(client.player.getBlockPos(), SoundEvents.BLOCK_LANTERN_HIT, SoundCategory.PLAYERS, 0.4F, 4, false);
+            if (client.world != null && client.player != null)
+                client.world.playSoundAtBlockCenter(client.player.getBlockPos(), SoundEvents.BLOCK_LANTERN_HIT, SoundCategory.PLAYERS, 0.4F, 4, false);
         }
 
         if (points.size() > 1 && currentPos.distanceTo(points.get(points.size() - 2).point) <= backTrackDistance) {

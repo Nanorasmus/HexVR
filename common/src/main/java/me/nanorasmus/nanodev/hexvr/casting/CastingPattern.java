@@ -2,6 +2,7 @@ package me.nanorasmus.nanodev.hexvr.casting;
 
 import at.petrak.hexcasting.api.casting.eval.ExecutionClientView;
 import at.petrak.hexcasting.api.casting.eval.ResolvedPatternType;
+import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import io.netty.buffer.ByteBuf;
@@ -121,7 +122,7 @@ public class CastingPattern {
         updateColor();
 
         // Send to other players
-        stackRaw = new ArrayList<>(info.getStack());
+        stackRaw = new ArrayList<>(info.getStackDescs());
         ServerCasting.sendPatternToServer(this);
     }
 
@@ -272,14 +273,14 @@ public class CastingPattern {
 
     public void refineClientStack() {
         stack.clear();
-        int width = 300;
+        int width = 500;
         Collections.reverse(stackRaw);
         for (NbtCompound tag : stackRaw) {
-            if (stack.size() >= 10) {
+            if (stack.size() >= 7) {
                 stack.add(Text.literal("...").formatted(Formatting.GRAY).asOrderedText());
                 break;
             }
-            stack.add(HexIotaTypes.getDisplayWithMaxWidth(tag, width, MinecraftClient.getInstance().textRenderer));
+            stack.add(IotaType.getDisplayWithMaxWidth(tag, width, MinecraftClient.getInstance().textRenderer));
         }
     }
 
