@@ -11,16 +11,18 @@ import at.petrak.hexcasting.api.spell.iota.Vec3Iota;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.NotNull;
+import org.vivecraft.common.network.BodyPart;
 import org.vivecraft.server.ServerVRPlayers;
 import org.vivecraft.server.ServerVivePlayer;
 
 import java.util.List;
 
-public class OpHandRotation implements ConstMediaAction {
-    int hand;
+public class OpBodyPartPosition implements ConstMediaAction {
 
-    public OpHandRotation(int hand) {
-        this.hand = hand;
+    BodyPart part;
+
+    public OpBodyPartPosition(BodyPart part) {
+        this.part = part;
     }
 
     @NotNull
@@ -59,7 +61,7 @@ public class OpHandRotation implements ConstMediaAction {
 
         // VR logic
         ServerVivePlayer pVR = ServerVRPlayers.getVivePlayer(p);
-        return List.of(new Vec3Iota(pVR.getControllerDir(hand)));
+        return List.of(new Vec3Iota(pVR.getBodyPartPos(part)));
     }
 
     @NotNull

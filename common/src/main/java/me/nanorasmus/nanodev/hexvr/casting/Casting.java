@@ -214,7 +214,7 @@ public class Casting {
             MinecraftClient client = MinecraftClient.getInstance();
 
             // Return if client is null or if player is not in vr
-            if (client.player == null || !VRState.vrRunning || DATA_HOLDER.vrPlayer == null || DATA_HOLDER.vrPlayer.vrdata_world_render == null)
+            if (client.player == null || !VRState.VR_RUNNING || DATA_HOLDER.vrPlayer == null || DATA_HOLDER.vrPlayer.vrdata_world_render == null)
                 return;
 
             TextRenderer textRenderer = client.textRenderer;
@@ -235,7 +235,7 @@ public class Casting {
 
     public void tick(@NotNull MinecraftClient client, boolean isPressed) {
         // Return if client is null or if player is not in vr
-        if (client.player == null || !VRState.vrRunning || DATA_HOLDER.vrPlayer == null || DATA_HOLDER.vrPlayer.vrdata_world_render == null)
+        if (client.player == null || !VRState.VR_RUNNING || DATA_HOLDER.vrPlayer == null || DATA_HOLDER.vrPlayer.vrdata_world_render == null)
             return;
 
 
@@ -324,7 +324,7 @@ public class Casting {
             rightNormal = normal.crossProduct(upNormal).normalize();
 
         } else {
-            reverseNormal = DATA_HOLDER.vrPlayer.vrdata_world_render.getController(controllerIndex).getDirection();
+            reverseNormal = new Vec3d(DATA_HOLDER.vrPlayer.vrdata_world_render.getController(controllerIndex).getDirection());
             normal = reverseNormal.negate();
             rightNormal = normal.crossProduct(new Vec3d(0, 1, 0)).normalize();
             upNormal = normal.crossProduct(rightNormal).normalize();

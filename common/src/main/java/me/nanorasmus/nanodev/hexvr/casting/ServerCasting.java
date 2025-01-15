@@ -33,6 +33,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.profiling.jfr.event.ServerTickTimeEvent;
 import org.vivecraft.api_beta.client.VivecraftClientAPI;
 import org.vivecraft.client_vr.ClientDataHolderVR;
+import org.vivecraft.common.network.BodyPart;
 import org.vivecraft.server.ServerVRPlayers;
 import org.vivecraft.server.ServerVivePlayer;
 
@@ -150,14 +151,14 @@ public class ServerCasting {
 
             // Update right hand
             ArrayList<Vec3d> rightHandPositions = oldHandPositions.getRight();
-            rightHandPositions.add(pVR.getControllerPos(0, p));
+            rightHandPositions.add(pVR.getBodyPartPos(BodyPart.MAIN_HAND));
             if (rightHandPositions.size() > HAND_POSITION_MEMORY_LENGTH) {
                 rightHandPositions.remove(0);
             }
 
             // Update left hand
             ArrayList<Vec3d> leftHandPositions = oldHandPositions.getLeft();
-            leftHandPositions.add(pVR.getControllerPos(1, p));
+            leftHandPositions.add(pVR.getBodyPartPos(BodyPart.OFF_HAND));
             if (leftHandPositions.size() > HAND_POSITION_MEMORY_LENGTH) {
                 leftHandPositions.remove(0);
             }
