@@ -4,8 +4,7 @@ import at.petrak.hexcasting.api.casting.ActionRegistryEntry;
 import at.petrak.hexcasting.api.casting.math.HexDir;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.common.lib.hex.HexActions;
-import me.nanorasmus.nanodev.hexvr.HexVR;
-import net.minecraft.util.Identifier;
+import org.vivecraft.common.network.BodyPart;
 
 public class RegisterPatterns {
     public static void registerPatterns() {
@@ -18,15 +17,15 @@ public class RegisterPatterns {
 
         // Hand Pos
         HexActions.make("hexvr/right_hand_pos", new ActionRegistryEntry(HexPattern.fromAngles("edd", HexDir.EAST),
-                new OpHandPosition(0)));
+                new OpBodyPartPosition(BodyPart.MAIN_HAND)));
         HexActions.make("hexvr/left_hand_pos", new ActionRegistryEntry(HexPattern.fromAngles("qaa", HexDir.WEST),
-                new OpHandPosition(1)));
+                new OpBodyPartPosition(BodyPart.OFF_HAND)));
 
         // Hand Rot
         HexActions.make("hexvr/right_hand_rot", new ActionRegistryEntry(HexPattern.fromAngles("qwa", HexDir.EAST),
-                new OpHandRotation(0)));
+                new OpBodyPartRotation(BodyPart.MAIN_HAND)));
         HexActions.make("hexvr/left_hand_rot", new ActionRegistryEntry(HexPattern.fromAngles("ewd", HexDir.WEST),
-                new OpHandRotation(1)));
+                new OpBodyPartRotation(BodyPart.OFF_HAND)));
 
         // Hand Velocity
         HexActions.make("hexvr/right_hand_vel", new ActionRegistryEntry(HexPattern.fromAngles("qwaa", HexDir.EAST),

@@ -38,7 +38,7 @@ public class OpHeadPosition implements ConstMediaAction {
 
         // VR logic
         ServerVivePlayer pVR = ServerVRPlayers.getVivePlayer(p);
-        return List.of(new Vec3Iota(pVR.getHMDPos(p)));
+        return List.of(new Vec3Iota(pVR.getHMDPos()));
     }
 
 
