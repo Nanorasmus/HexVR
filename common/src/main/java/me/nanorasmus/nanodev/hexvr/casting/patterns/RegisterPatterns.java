@@ -5,6 +5,7 @@ import at.petrak.hexcasting.api.spell.math.HexDir;
 import at.petrak.hexcasting.api.spell.math.HexPattern;
 import me.nanorasmus.nanodev.hexvr.HexVR;
 import net.minecraft.util.Identifier;
+import org.vivecraft.common.network.BodyPart;
 
 public class RegisterPatterns {
     public static void registerPatterns() {
@@ -21,18 +22,18 @@ public class RegisterPatterns {
             // Hand Pos
             PatternRegistry.mapPattern(HexPattern.fromAngles("edd", HexDir.EAST),
                     new Identifier(HexVR.MOD_ID, "right_hand_pos"),
-                    new OpHandPosition(0));
+                    new OpBodyPartPosition(BodyPart.MAIN_HAND));
             PatternRegistry.mapPattern(HexPattern.fromAngles("qaa", HexDir.WEST),
                     new Identifier(HexVR.MOD_ID, "left_hand_pos"),
-                    new OpHandPosition(1));
+                    new OpBodyPartPosition(BodyPart.OFF_HAND));
 
             // Hand Rot
             PatternRegistry.mapPattern(HexPattern.fromAngles("qwa", HexDir.EAST),
                     new Identifier(HexVR.MOD_ID, "right_hand_rot"),
-                    new OpHandRotation(0));
+                    new OpBodyPartRotation(BodyPart.MAIN_HAND));
             PatternRegistry.mapPattern(HexPattern.fromAngles("ewd", HexDir.WEST),
                     new Identifier(HexVR.MOD_ID, "left_hand_rot"),
-                    new OpHandRotation(1));
+                    new OpBodyPartRotation(BodyPart.OFF_HAND));
 
             // Hand Velocity
             PatternRegistry.mapPattern(HexPattern.fromAngles("qwaa", HexDir.EAST),

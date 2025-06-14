@@ -1,6 +1,6 @@
 plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "1.3-SNAPSHOT" apply false
+    id "dev.architectury.loom" version "1.7-SNAPSHOT" apply false
 }
 
 architectury {
@@ -20,6 +20,7 @@ subprojects {
         mappings "net.fabricmc:yarn:1.19.2+build.28:v2"
         // The following line declares the yarn mappings you may select this one as well.
         // mappings "net.fabricmc:yarn:@YARN_MAPPINGS@:v2"
+        implementation("org.joml:joml:1.10.8")
     }
 }
 
