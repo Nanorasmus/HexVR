@@ -29,6 +29,8 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
+import org.joml.Vector3d;
+import org.joml.Vector3f;
 import org.vivecraft.client_vr.ClientDataHolderVR;
 import org.vivecraft.client_vr.VRState;
 
@@ -358,8 +360,8 @@ public class Casting {
             rightNormal = normal.crossProduct(upNormal).normalize();
 
         } else {
-            reverseNormal = new Vec3d(DATA_HOLDER.vrPlayer.vrdata_world_render.getController(controllerIndex).getDirection());
-            normal = reverseNormal.negate();
+            Vector3f direction = DATA_HOLDER.vrPlayer.vrdata_world_render.getController(controllerIndex).getDirection();
+            normal = new Vec3d(direction.x, direction.y, direction.z).negate();
             rightNormal = normal.crossProduct(new Vec3d(0, 1, 0)).normalize();
             upNormal = normal.crossProduct(rightNormal).normalize();
         }
